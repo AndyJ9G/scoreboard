@@ -3,7 +3,7 @@ import Timer from './Timer';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTools, faUsersCog, faNewspaper, faFootballBall, faFileExport, faLaptop, faTv, faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
+import { faTools, faUsersCog, faNewspaper, faFootballBall, faFileExport, faLaptop, faTv, faPhotoVideo, faCalculator } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = ({socket, showPlays, setShowPlays, showStats, setShowStats, selectedGame, setSelectedGame, showDrive, setShowDrive, showField, setShowField}) => {
     const [games, setGames] = useState([{
@@ -32,6 +32,12 @@ const Navigation = ({socket, showPlays, setShowPlays, showStats, setShowStats, s
         pom.click();
     }
 
+    // calculate stats
+    const onCalculate = (id) => {
+        // calculate stats
+        socket.emit('calculateStats', { message: 'Client requesting stats calculation', gamejson: id });
+    }
+
     // select game
     const onChooseGame = (id) => {
         // set game id = json file name
@@ -58,6 +64,8 @@ const Navigation = ({socket, showPlays, setShowPlays, showStats, setShowStats, s
             setShowStats(!showStats);
         }else if(selectedKey === '#export'){
             onExport(selectedGame);
+        }else if(selectedKey === '#export'){
+            onCalculate(selectedGame);
         }else{
             toast.info(`Selected ${selectedKey}`, {autoClose: 2000, theme: 'dark'});
         }
@@ -86,6 +94,7 @@ const Navigation = ({socket, showPlays, setShowPlays, showStats, setShowStats, s
                     {window.location.pathname === '/livegame' && selectedGame &&
                         <NavDropdown title={<span>Game-Controls <FontAwesomeIcon icon={faPhotoVideo}></FontAwesomeIcon></span>} id="basic-nav-dropdown">
                             <NavDropdown.Item href="#export">Export Game File <FontAwesomeIcon icon={faFileExport}></FontAwesomeIcon></NavDropdown.Item>
+                            <NavDropdown.Item href="#stats">Calculate Stats <FontAwesomeIcon icon={faCalculator}></FontAwesomeIcon></NavDropdown.Item>
                             <NavDropdown.Item href="#showField"><input type="checkbox" name="showField" checked={showField}/> Show Field</NavDropdown.Item>
                             <NavDropdown.Item href="#showDrive"><input type="checkbox" name="showDrive" checked={showDrive}/> Show Drive</NavDropdown.Item>
                             <NavDropdown.Item href="#showPlays"><input type="checkbox" name="showPlays" checked={showPlays}/> Show Play List</NavDropdown.Item>

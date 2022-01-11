@@ -2419,6 +2419,12 @@ io.on('connection', function(socket){
     logger.info('requestTableStats', { message: 'Request tableStats from client.' });
     sendTableStats();
   });
+
+  // request stats calculation
+  socket.on('calculateStats', function (data) {
+    logger.info('calculateStats', { message: 'Client requesting stats calculation.' });
+    calculateStats();
+  });
 });
 
 // --- functions for stats ---
@@ -2866,6 +2872,20 @@ function playGUIupdate(item, value){
     // send table game data
     sendTableStats(liveGameData);
   }
+  sendGUIdata();
+}
+
+// re calculate stats
+function calculateStats(){
+  // read game data and write playtext and stats
+  liveGameData = readLiveGame(liveGameData);
+  // write live game data to file
+  writeLiveGameDataToFile(liveGameData);
+  // send live game data
+  sendLiveGameData(liveGameData);
+  // send table game data
+  sendTableStats(liveGameData);
+
   sendGUIdata();
 }
 
@@ -6122,6 +6142,11 @@ const readLiveGame = (liveGameData) => {
   // write team stats
   teamStats = Object.assign(teamStats, resultAverages);
 
+  // calculate conversions
+  let resultConversions = calculateConversions(liveGameData, teamStats);
+  // write team stats
+  teamStats = Object.assign(teamStats, resultConversions);
+
   // set teamStats
   liveGameData.teamStats = teamStats;
 
@@ -7527,6 +7552,86 @@ function calculateAverages(teamStats) {
   });
 
   return teamStatsAverages;
+}
+
+// calculate play conversions
+const calculateConversions = (liveGameData, teamStats) => {
+
+  let teamStatsObject = teamStats;
+
+  // loop plays
+  liveGameData.plays.forEach((play,index) => {
+    // check if the play was NOT nullified by penalty
+    if(!play.penalty){
+      // check play was first down
+      if(play.down === 1){
+        // check previous play was a regular down
+        if(liveGameData.plays[index-1].down !== 0){
+          // check if previous play was same team
+          if(liveGameData.plays[index-1].offense === play.offense){
+            // now check the play conversion
+            if(liveGameData.plays[index-1].down === 3){
+              // we have a 3rd down converted to first down, add to play
+              // check if we have such play already in period
+              if(teamStatsObject[play.offense].team[play.period].conversion3rddown){
+                // increase count
+                teamStatsObject[play.offense].team[play.period].conversion3rddown = teamStatsObject[play.offense].team[play.period].conversion3rddown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[play.period].conversion3rddown = 1;
+              }
+              // same check if we have such play already in period 0 = game
+              if(teamStatsObject[play.offense].team[0].conversion3rddown){
+                // increase count
+                teamStatsObject[play.offense].team[0].conversion3rddown = teamStatsObject[play.offense].team[0].conversion3rddown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[0].conversion3rddown = 1;
+              }
+            }else if(liveGameData.plays[index-1].down === 4){
+              // we have a 4th down converted to first down, add to play
+              // check if we have such play already in period
+              if(teamStatsObject[play.offense].team[play.period].conversion4thdown){
+                // increase count
+                teamStatsObject[play.offense].team[play.period].conversion4thdown = teamStatsObject[play.offense].team[play.period].conversion4thdown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[play.period].conversion4thdown = 1;
+              }
+              // same check if we have such play already in period 0 = game
+              if(teamStatsObject[play.offense].team[0].conversion4thdown){
+                // increase count
+                teamStatsObject[play.offense].team[0].conversion4thdown = teamStatsObject[play.offense].team[0].conversion4thdown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[0].conversion4thdown = 1;
+              }
+            }else{
+              // we have reached a first down
+              // check if we have such play already in period
+              if(teamStatsObject[play.offense].team[play.period].conversion1stdown){
+                // increase count
+                teamStatsObject[play.offense].team[play.period].conversion1stdown = teamStatsObject[play.offense].team[play.period].conversion1stdown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[play.period].conversion1stdown = 1;
+              }
+              // same check if we have such play already in period 0 = game
+              if(teamStatsObject[play.offense].team[0].conversion1stdown){
+                // increase count
+                teamStatsObject[play.offense].team[0].conversion1stdown = teamStatsObject[play.offense].team[0].conversion1stdown +1;
+              }else{
+                // set count
+                teamStatsObject[play.offense].team[0].conversion1stdown = 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+
+  return teamStatsObject;
 }
 
 // ###################################################################
