@@ -1,41 +1,43 @@
-# razorbacks_scoreboard
-American football scoreboard used as overlay for livestreaming.
+# American Football scoreboard and stats
 
-the scoreboard is based on **node js web server** and includes **websockets**.
+American football scoreboard and stats is used as a live play by play logger and livestreaming overlay.
 
+Each play is saved with user input and a full stats sheet is created.
+Additionally there is a live overlay scoreaboard for live streaming.
 
-the main controls can be used within the browser or sending GET requests from links.
+The backend is based on **node js with express web server** and includes **websockets**.
+The scoreboard overlay is running on the node js server.
 
-the GET requests can be send by eg. stream deck hardware or similar.
+Main controls can be used on the webpage in the browser or with sending GET requests.
+The GET requests can be send by eg. stream deck hardware or similar.
 
+The scoreboard creates **overlays as HTML files** which can be included in livestreaming software like **OBS Studio** or **VMIX**.
+The main setup of the scoreboard is done by the web controls, all configurations are **JSON files**.
 
-the scoreboard creates **overlays as HTML files** which can be included in livestreaming software like **OBS Studio** or **VMIX**.
+The stats user interface (frontend) is create with **react js** and the communication to the backend is using **websockets**.
 
-the main setup of the scoreboard is done by the web controls, all configurations are **JSON files**.
+All configurations, team setup, games and stats are stored as **JSON files**.
 
-with the JSON files the team names and the team images can be defined, but also player lists with names and numbers.
+-- INSTALLATION --
+The app need **node js** installed.
 
+After node js is installed, download or clone this GIT repository.
+Then run **npm install** on the command line within the parent directory and all node_modules will be installed.
+Then run **npm build** on the command line to create the react js statis files.
 
-the scoreboard need **node js** installed.
+-- START APPLICATION --
+Run **npm start** on the command line within the parent directory (or use the **.BAT** file on windows platforms).
 
-after node js is installed, just run **npm install** within the parent directory and all node_modules will be installed.
+-- USER INTERFACE --
+The main controls can then be found under **port 4000** under **"http://localhost:4000"**.
+Here you will also find the links to the overlays.
 
+-- FUNCTIONS --
+The main communication is running via websockets.
 
-to run the scoreboard, just run **node server.js** on the command line (or use the **.BAT** file on windows platforms).
+Additionally the control can be managed by GET requests:
 
-
-the main controls can then be found under **port 3000** like "http://localhost:3000".
-
-the overlay can be found under "http://localhost:3000/scoreboard" and the player name overlay under "http://localhost:3000/names".
-
-
-if the scoreboard and the livestreaming software are running on different machines, change the localhost to the IP or the scoreboard machine.
-
-the main communication is running via websockets through the different HTML pages, made possible by javascript.
-
-additionally the control can be managed by GET requests:
-
-the link is: http://localhost:3000/getcontrol?action=
+The link for the different functions is: http://localhost:3000/getcontrol?action=
 
 // setup scoreboard
 
