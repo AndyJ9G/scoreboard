@@ -1,0 +1,14 @@
+{
+  "team_name": "Stuttgart Scorpions",
+  "name": "Scorpions",
+  "color": "#ff0000",
+  "logo": "stuttgart-scorpions.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

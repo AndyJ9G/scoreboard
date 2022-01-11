@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+body {
+    width: 1920px;
+    height: 1080px;
+    background-color: transparent; 
+    margin: 0 auto;
+}
+.row {
+	background-color: #dddddd;
+}
+#hintergrund {
+	position: absolute;
+	left: 382px;
+	top: 965px;
+	height: 60px;
+	width: 1156px;
+	background-color: #1f211f;
+}
+#kommentatorenbox {
+	position: absolute;
+	left: 402px;
+	top: 825px;
+	height: 100px;
+	width: 1116px;
+	background-color: transparent;
+}
+#kommentator1box {
+	position: absolute;
+	left: 402px;
+	top: 825px;
+	height: 100px;
+	width: 550px;
+	background-color: #ffffff;
+}
+#kommentator1text {
+	position: absolute;
+	left: 512px;
+	top: 855px;
+	height: 70px;
+	width: 380px;
+	color: #060607;
+	font-size: 32px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 380px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#kommentator2box {
+	position: absolute;
+	left: 968px;
+	top: 825px;
+	height: 100px;
+	width: 550px;
+	background-color: #ffffff;
+}
+#kommentator2text {
+	position: absolute;
+	left: 1008px;
+	top: 855px;
+	height: 70px;
+	width: 380px;
+	color: #060607;
+	font-size: 32px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 380px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#kommentatorgfllogobox {
+	position: absolute;
+	left: 910px;
+	top: 825px;
+	height: 100px;
+	width: 100px;
+	background-color: transparent;
+}
+#kommentatorgfllogo {
+	height: 100px;
+	width: 100px;
+	object-fit: contain;
+}
+#kommentator1logobox {
+	position: absolute;
+	left: 412px;
+	top: 830px;
+	height: 90px;
+	width: 90px;
+}
+#kommentator1logo {
+	height: 90px;
+	width: 90px;
+	object-fit: contain;
+}
+#kommentator2logobox {
+	position: absolute;
+	left: 1418px;
+	top: 830px;
+	height: 90px;
+	width: 90px;
+}
+#kommentator2logo {
+	height: 90px;
+	width: 90px;
+	object-fit: contain;
+}
+#bauchbindebox {
+	position: absolute;
+	left: 382px;
+	top: 925px;
+	height: 100px;
+	width: 1156px;
+	background-color: transparent;
+}
+#bauchbindetopbox {
+	position: absolute;
+	left: 402px;
+	top: 925px;
+	height: 60px;
+	width: 1136px;
+	background-color: #ffffff;
+}
+#bauchbindetoptext {
+	position: absolute;
+	left: 520px;
+	top: 935px;
+	height: 50px;
+	width: 880px;
+	color: #060607;
+	font-size: 32px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 880px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#bauchbindebottombox {
+	position: absolute;
+	left: 402px;
+	top: 985px;
+	height: 40px;
+	width: 1136px;
+	background-color: #3c3970;
+}
+#bauchbindebottomtext {
+	position: absolute;
+	left: 520px;
+	top: 990px;
+	height: 35px;
+	width: 880px;
+	color: #ffffff;
+	font-size: 26px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 880px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#bauchbindegfllogobox {
+	position: absolute;
+	left: 372px;
+	top: 925px;
+	height: 100px;
+	width: 100px;
+	background-color: transparent;
+}
+#bauchbindegfllogo {
+	height: 100px;
+	width: 100px;
+	object-fit: contain;
+}
+#bauchbindelogobox {
+	position: absolute;
+	left: 1420px;
+	top: 930px;
+	height: 90px;
+	width: 90px;
+}
+#bauchbindelogo {
+	height: 90px;
+	width: 90px;
+	object-fit: contain;
+}
+#scorebox {
+	position: absolute;
+	left: 382px;
+	top: 965px;
+	height: 60px;
+	width: 1156px;
+	background-color: #e5e3e3;
+}
+#scorelogobox {
+	position: absolute;
+	left: 800px;
+	top: 965px;
+	height: 60px;
+	width: 60px;
+	background-color: #e5e3e3;
+	text-align: center;
+}
+#scorelogo {
+	height: 55px;
+	width: 55px;
+	object-fit: contain;
+}
+#scorenamebox {
+	position: absolute;
+	left: 880px;
+	top: 965px;
+	height: 60px;
+	width: 220px;
+	background-color: #e5e3e3;
+}
+#scorename {
+	position: absolute;
+	left: 884px;
+	top: 978px;
+	height: 30px;
+	width: 210px;
+	color: #060607;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	max-width: 210px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#teamfarbe1box {
+	position: absolute;
+	left: 382px;
+	top: 965px;
+	height: 60px;
+	width: 18px;
+}
+#teamname1box {
+	position: absolute;
+	left: 400px;
+	top: 965px;
+	height: 60px;
+	width: 208px;
+	background-color: #1f211f;
+}
+#teamname1 {
+	position: absolute;
+	left: 404px;
+	top: 978px;
+	height: 30px;
+	width: 200px;
+	color: #e5e3e3;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	max-width: 200px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#team1timeout1box {
+	position: absolute;
+	left: 411px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#team1timeout2box {
+	position: absolute;
+	left: 498px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#team1timeout3box {
+	position: absolute;
+	left: 585px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#teamlogo1box {
+	position: absolute;
+	left: 608px;
+	top: 965px;
+	height: 60px;
+	width: 60px;
+	background-color: #1f211f;
+	text-align: center;
+}
+#teamlogo1 {
+	position: relative;
+	left: 3px;
+	top: 3px;
+	height: 50px;
+	width: 50px;
+	object-fit: contain;
+}
+#teamlogo1box_2, #teamlogo1box_3, #teamlogo2box_2, #teamlogo2box_3 {
+	height: 70px;
+	width: 150px;
+	text-align: center;
+}
+#teamlogo1_2, #teamlogo1_3, #teamlogo2_2, #teamlogo2_3 {
+	position: relative;
+	height: 70px;
+	width: 70px;
+	object-fit: contain;
+}
+#spielstand1box {
+	position: absolute;
+	left: 678px;
+	top: 965px;
+	height: 60px;
+	width: 70px;
+	background-color: #060607;
+}
+#spielstand1 {
+	position: absolute;
+	left: 678px;
+	top: 978px;
+	height: 30px;
+	width: 70px;
+	color: #e5e3e3;
+	font-size: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#ballbesitz1box {
+	position: absolute;
+	left: 680px;
+	top: 965px;
+	height: 10px;
+	width: 66px;
+	background-color: #CCAC19;
+}
+#teamfarbe2box {
+	position: absolute;
+	left: 748px;
+	top: 965px;
+	height: 60px;
+	width: 18px;
+}
+#teamname2ox {
+	position: absolute;
+	left: 766px;
+	top: 965px;
+	height: 60px;
+	width: 208px;
+	background-color: #1f211f;
+}
+#teamname2 {
+	position: absolute;
+	left: 770px;
+	top: 978px;
+	height: 30px;
+	width: 200px;
+	color: #e5e3e3;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	max-width: 200px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#team2timeout1box {
+	position: absolute;
+	left: 781px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#team2timeout2box {
+	position: absolute;
+	left: 868px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#team2timeout3box {
+	position: absolute;
+	left: 955px;
+	top: 1020px;
+	height: 5px;
+	width: 80px;
+	background-color: #e5e3e3;
+}
+#teamlogo2box {
+	position: absolute;
+	left: 974px;
+	top: 965px;
+	height: 60px;
+	width: 60px;
+	background-color: #1f211f;
+	text-align: center;
+}
+#teamlogo2 {
+	position: relative;
+	left: 3px;
+	top: 3px;
+	height: 50px;
+	width: 50px;
+	object-fit: contain;
+}
+#spielstand2box {
+	position: absolute;
+	left: 1044px;
+	top: 965px;
+	height: 60px;
+	width: 70px;
+	background-color: #060607;
+}
+#spielstand2 {
+	position: absolute;
+	left: 1044px;
+	top: 978px;
+	height: 30px;
+	width: 70px;
+	color: #e5e3e3;
+	font-size: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#ballbesitz2box {
+	position: absolute;
+	left: 1046px;
+	top: 965px;
+	height: 10px;
+	width: 66px;
+	background-color: #CCAC19;
+}
+#quarterbox {
+	position: absolute;
+	left: 1114px;
+	top: 965px;
+	height: 60px;
+	width: 110px;
+	background-color: #1f211f;
+}
+#quarter {
+	position: absolute;
+	left: 1114px;
+	top: 981px;
+	height: 24px;
+	width: 110px;
+	color: #e5e3e3;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#timebox {
+	position: absolute;
+	left: 1224px;
+	top: 965px;
+	height: 60px;
+	width: 70px;
+	background-color: #1f211f;
+}
+#time {
+	position: absolute;
+	left: 1224px;
+	top: 981px;
+	height: 24px;
+	width: 70px;
+	color: #CCAC19;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#timebox2 {
+	width: 70px;
+}
+#time2 {
+	position: relative;
+	height: 24px;
+	width: 70px;
+	color: #CCAC19;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#playclockbox {
+	position: absolute;
+	left: 1306px;
+	top: 965px;
+	height: 60px;
+	width: 70px;
+	background-color: #060607;
+}
+#playclock {
+	position: absolute;
+	left: 1306px;
+	top: 981px;
+	height: 24px;
+	width: 70px;
+	color: #e5e3e3;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;;
+	text-align: center;
+	vertical-align: middle;
+}
+#downdistancebox {
+	position: absolute;
+	left: 1376px;
+	top: 965px;
+	height: 60px;
+	width: 162px;
+	background-color: #1f211f;
+}
+#downdistance {
+	position: absolute;
+	left: 1376px;
+	top: 981px;
+	height: 24px;
+	width: 162px;
+	color: #e5e3e3;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+#flagbox {
+	position: absolute;
+	left: 1376px;
+	top: 965px;
+	height: 60px;
+	width: 162px;
+	background-color: #ffff00;
+}
+#flag {
+	position: absolute;
+	left: 1376px;
+	top: 981px;
+	height: 24px;
+	width: 162px;
+	color: #060607;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}

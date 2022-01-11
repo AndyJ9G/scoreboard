@@ -1,0 +1,14 @@
+{
+  "team_name": "Cologne Crocodiles",
+  "name": "Crocodiles",
+  "color": "#feae20",
+  "logo": "cologne-crocodiles.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

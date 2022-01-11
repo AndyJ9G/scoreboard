@@ -1,0 +1,128 @@
+{
+  "team_name": "Fursty Razorbacks",
+  "name": "Razorbacks",
+  "color": "#ee1818",
+  "logo": "fursty-razorbacks.png",
+  "players": [
+    {
+      "name": "Butcher",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    },
+    {
+      "name": "Benedikt Aichberger",
+      "position": "DE",
+      "number": "90",
+      "image": ""
+    },
+    {
+      "name": "Timur Akin",
+      "position": "LB",
+      "number": "44",
+      "image": ""
+    },
+    {
+      "name": "Yonathan Assefa",
+      "position": "WR",
+      "number": "80",
+      "image": ""
+    },
+    {
+      "name": "Felix Boy",
+      "position": "DE",
+      "number": "",
+      "image": ""
+    },
+    {
+      "name": "Moritz Buchberger",
+      "position": "CB",
+      "number": "2",
+      "image": ""
+    },
+    {
+      "name": "Till Bödewaldt",
+      "position": "LB",
+      "number": "",
+      "image": ""
+    },
+    {
+      "name": "Laurin Deimel",
+      "position": "LB",
+      "number": "",
+      "image": ""
+    },
+    {
+      "name": "Timur Duman",
+      "position": "DT",
+      "number": "",
+      "image": ""
+    },
+    {
+      "name": "David Elßel",
+      "position": "RB",
+      "number": "14",
+      "image": ""
+    },
+    {
+      "name": "Noah Haberer",
+      "position": "WR",
+      "number": "",
+      "image": ""
+    },
+    {
+      "name": "Niklas Wölfl",
+      "position": "DE",
+      "number": "7",
+      "image": ""
+    },
+    {
+      "name": "Lukas Köttstorfer",
+      "position": "QB",
+      "number": "8",
+      "image": ""
+    },
+    {
+      "name": "Emil Mathias",
+      "position": "DT",
+      "number": "38",
+      "image": ""
+    },
+    {
+      "name": "Benni Mildner",
+      "position": "LB",
+      "number": "33",
+      "image": ""
+    },
+    {
+      "name": "Marcel Müller",
+      "position": "DT",
+      "number": "93",
+      "image": ""
+    },
+    {
+      "name": "Paul Nowack",
+      "position": "WR",
+      "number": "85",
+      "image": ""
+    },
+    {
+      "name": "Justin Okoronkwo",
+      "position": "LB",
+      "number": "27",
+      "image": ""
+    },
+    {
+      "name": "Valentino Virant",
+      "position": "RB",
+      "number": "6",
+      "image": ""
+    },
+    {
+      "name": "Nick von Minckwitz",
+      "position": "LB",
+      "number": "26",
+      "image": ""
+    }
+  ]
+}

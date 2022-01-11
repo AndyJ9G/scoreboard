@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.btn-logo {
+	padding: 0px;
+}
+
+.teamlogo {
+	position: relative;
+	height: 35px;
+	width: 35px;
+	object-fit: contain;
+}
+
+.teamlogosmall {
+	position: relative;
+	height: 30px;
+	width: 30px;
+	object-fit: contain;
+}
+
+.teamlogosupersmall {
+	position: relative;
+	height: 20px;
+	width: 20px;
+	object-fit: contain;
+}
+
+.flag {
+	position: relative;
+	height: 40px;
+	width: 40px;
+	object-fit: contain;
+}
+
+.playername {
+	line-height: 1;
+	font-size: 0.8rem;
+}
+
+.penaltyname {
+	line-height: 1;
+	font-size: 0.8rem;
+}
+
+.playsOverflow {
+	height:250px;
+	overflow-y: scroll;
+}
+
+.teamsOverflow {
+	height:500px;
+	overflow-y: scroll;
+}
+
+.supersmall {
+	line-height: 1;
+	font-size: 0.6rem;
+}
+
+.verysmall {
+	line-height: 1;
+	font-size: 0.8rem;
+}
+
+.form-control {
+	font-size: 0.7rem;
+}
+
+.faIcon:hover {
+	color: red;
+}
+
+.table {
+	line-height: 1;
+	font-size: 0.8rem;
+}
+
+.fieldimage {
+	position: absolute;
+	height: 100px;
+	width: 500px;
+	object-fit: fill;
+	left: 0px;
+	top: 0px;
+	opacity: 0.5;
+}
+
+.fieldlogoleft {
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	object-fit: fill;
+	left: 10px;
+	top: 35px;
+}
+.fieldlogoright {
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	object-fit: fill;
+	left: 460px;
+	top: 35px;
+}
+
+.fieldlos {
+	position: absolute;
+	height: 100px;
+	width: 3px;
+	object-fit: fill;
+	left: 200px;
+	top: 0px;
+	background-color: #0000ff;
+	opacity: 0.3;
+}
+.fieldfirstdown {
+	position: absolute;
+	height: 100px;
+	width: 3px;
+	object-fit: fill;
+	left: 250px;
+	top: 0px;
+	background-color: #ffff00;
+	opacity: 0.3;
+}
+.fieldball {
+	position: absolute;
+	height: 10px;
+	width: 11px;
+	object-fit: fill;
+	left: 247px;
+	top: 45px;
+	opacity: 0.7;
+}
+.fieldarrowright {
+	position: absolute;
+	height: 30px;
+	width: 45px;
+	object-fit: fill;
+	left: 257px;
+	top: 35px;
+	opacity: 0.4;
+}
+.fieldarrowleft {
+	position: absolute;
+	height: 30px;
+	width: 45px;
+	object-fit: fill;
+	left: 203px;
+	top: 35px;
+	opacity: 0.4;
+}
+

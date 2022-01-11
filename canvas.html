@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL-TV Scoreboard Draw</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scoreboardsmall.css">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    	body {
+    		width: 1920px;
+    		height: 1080px;
+		}
+		input.call-picker {
+			border: 1px solid #AAA;
+			color: #666;
+			text-transform: uppercase;
+			float: left;
+			outline: none;
+			padding: 10px;
+			text-transform: uppercase;
+			width: 85px;
+		}
+
+		.color-picker {
+			width: 130px;
+			background: #F3F3F3;
+			height: 81px;
+			padding: 5px;
+			border: 5px solid #fff;
+			box-shadow: 0px 0px 3px 1px #DDD;
+			position: absolute;
+			top: 61px;
+			left: 2px;
+		}
+
+		.color-holder {
+			background: #fff;
+			cursor: pointer;
+			border: 1px solid #AAA;
+			width: 40px;
+			height: 36px;
+			float: left;
+			margin-left: 5px;
+		}
+
+		input.stroke_width_picker {
+			border: 1px solid #AAA;
+			color: #666;
+			text-transform: uppercase;
+			float: left;
+			outline: none;
+			padding: 10px;
+			text-transform: uppercase;
+			width: 85px;
+		}
+
+		p {
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+		button {
+			margin-left: 1rem;
+		}
+	</style> 
+</head>
+ 
+<body>
+
+<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+<video id="videoElement"></video>
+<script>
+    if (flvjs.isSupported()) {
+        var videoElement = document.getElementById('videoElement');
+        var flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            url: 'ws://localhost:8000/live/STREAM_NAME.flv'
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+        flvPlayer.play();
+    }
+</script>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js"></script>
+	<script type="text/javascript" src="sketch.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</body>
+ 
+</html>

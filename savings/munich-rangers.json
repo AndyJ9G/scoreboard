@@ -1,0 +1,14 @@
+{
+  "team_name": "Munich Rangers",
+  "name": "Rangers",
+  "color": "#ef7c00",
+  "logo": "munich-rangers.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

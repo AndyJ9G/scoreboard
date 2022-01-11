@@ -1,0 +1,14 @@
+{
+  "team_name": "Nuernberg Rams",
+  "name": "Rams",
+  "color": "#01152e",
+  "logo": "nuernberg-rams.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

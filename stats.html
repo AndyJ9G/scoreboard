@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL Scoreboard Stats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scoreboardsmall.css">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    	body {
+    		width: 1920px;
+    		height: 1080px;
+		}
+		#help {
+			position: absolute;
+			left: 350px;
+			top: 150px;
+			height: 400px;
+			width: 1200px;
+			color: #ff0607;
+			font-size: 80px;
+			font-family: 'Roboto', sans-serif;
+			font-weight: bold;
+			text-shadow: 0 0 10px #ffffff, 0 0 20px #0000ff;
+			text-align: center;
+			max-width: 1200px;
+			overflow: hidden;
+			vertical-align: middle;
+			opacity: 0.4;
+			cursor: crosshair;
+		}
+		#mouseyardlabel {
+			position: absolute;
+			left: 5px;
+			top: 450px;
+			color: #ffffff;
+			font-size: 20px;
+			font-family: 'Roboto', sans-serif;
+			font-weight: bold;
+			text-shadow: 0 0 5px #000000, 0 0 5px #00ff00;
+			opacity: 0.9;
+		}
+		#position {
+			position: absolute;
+			left: 5px;
+			top: 500px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			background-color: #ffcc99;
+		}
+		#yardtext {
+			position: absolute;
+			left: 5px;
+			top: 520px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			background-color: #ffcc99;
+		}
+		#playtext {
+			position: absolute;
+			left: 5px;
+			top: 540px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			background-color: #ffcc99;
+		}
+		#balltext {
+			position: absolute;
+			left: 5px;
+			top: 560px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			text-align: center;
+			background-color: #ffcc99;
+		}
+		#actiontext {
+			position: absolute;
+			left: 5px;
+			top: 580px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			background-color: #bbcc99;
+		}
+		#lostext {
+			position: absolute;
+			left: 900px;
+			top: 35px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			text-align: center;
+			background-color: #ddcc99;
+		}
+		#hashtext {
+			position: absolute;
+			left: 900px;
+			top: 50px;
+			font-size: 12px;
+			font-family: 'Roboto', sans-serif;
+			text-align: center;
+			background-color: #bbcc99;
+		}
+		#playlog {
+			position: absolute;
+			left: 200px;
+			top: 620px;
+			height: 250px;
+			width: 390px;
+			font-size: 8px;
+			font-family: 'Roboto', sans-serif;
+			overflow-x: hidden;
+			overflow-y: auto;
+			background-color: #ffcc99;
+		}
+		#fieldpic {
+			position: absolute;
+			left: 200px;
+			top: 100px;
+			height: 500px;
+			width: 1470px;
+			cursor: crosshair;
+		}
+		#fieldimage {
+			height: 500px;
+			width: 1470px;
+		}
+		#ball {
+			position: absolute;
+			left: 927px;
+			top: 350px;
+			height: 20px;
+			width: 20px;
+			cursor: crosshair;
+		}
+		#down1 {
+			position: absolute;
+			left: 930px;
+			top: 70px;
+			height: 30px;
+			width: 10px;
+		}
+		#down2 {
+			position: absolute;
+			left: 1050px;
+			top: 70px;
+			height: 30px;
+			width: 10px;
+		}
+		#chain {
+			position: absolute;
+			left: 935px;
+			top: 97px;
+			height: 2px;
+			width: 120px;
+			background-color: #222222;
+			opacity: 0.8;
+		}
+		#arrowright {
+			position: absolute;
+			left: 950px;
+			top: 300px;
+			height: 100px;
+			width: 90px;
+			opacity: 0.4;
+			cursor: crosshair;
+		}
+		#arrowleft {
+			position: absolute;
+			left: 950px;
+			top: 300px;
+			height: 100px;
+			width: 90px;
+			opacity: 0.4;
+			cursor: crosshair;
+		}
+		#field {
+			position: absolute;
+			left: 200px;
+			top: 100px;
+			height: 500px;
+			width: 1470px;
+			cursor: crosshair;
+		}
+		#teamlogo1_2 {
+			position: absolute;
+			left: 220px;
+			top: 300px;
+			height: 100px;
+			width: 100px;
+			cursor: crosshair;
+		}
+		#teamlogo2_2 {
+			position: absolute;
+			left: 1550px;
+			top: 300px;
+			height: 100px;
+			width: 100px;
+			cursor: crosshair;
+		}
+		#firstdown {
+			position: absolute;
+			left: 1050px;
+			top: 100px;
+			height: 500px;
+			width: 10px;
+			background-color: #ffff00;
+			opacity: 0.3;
+			cursor: crosshair;
+		}
+		#mouselos {
+			position: absolute;
+			left: 930px;
+			top: 100px;
+			height: 500px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.3;
+			cursor: crosshair;
+		}
+		#los {
+			position: absolute;
+			left: 930px;
+			top: 100px;
+			height: 500px;
+			width: 10px;
+			background-color: #0000ff;
+			opacity: 0.3;
+			cursor: crosshair;
+		}
+		#lostopout {
+			position: absolute;
+			left: 930px;
+			top: 100px;
+			height: 30px;
+			width: 10px;
+			background-color: #ff0000;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#lostopnum {
+			position: absolute;
+			left: 930px;
+			top: 100px;
+			height: 95px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#lostophash {
+			position: absolute;
+			left: 930px;
+			top: 195px;
+			height: 85px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#losmid {
+			position: absolute;
+			left: 930px;
+			top: 280px;
+			height: 140px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#loslowhash {
+			position: absolute;
+			left: 930px;
+			top: 420px;
+			height: 85px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#loslownum {
+			position: absolute;
+			left: 930px;
+			top: 505px;
+			height: 95px;
+			width: 10px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#loslowout {
+			position: absolute;
+			left: 930px;
+			top: 570px;
+			height: 30px;
+			width: 10px;
+			background-color: #ff0000;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#lefttd {
+			position: absolute;
+			left: 212px;
+			top: 100px;
+			height: 500px;
+			width: 118px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#righttd {
+			position: absolute;
+			left: 1542px;
+			top: 100px;
+			height: 500px;
+			width: 118px;
+			background-color: #00ff00;
+			opacity: 0.7;
+			cursor: crosshair;
+		}
+		#buttonboard {
+			position: absolute;
+			left: 600px;
+			top: 620px;
+			height: 250px;
+			width: 1070px;
+			background-color: #dddddd;
+		}
+	</style> 
+</head>
+ 
+<body>
+	<div id="scoreboard">
+		<div id="hintergrund"></div>
+
+		<div id="teamfarbe1box" style="background-color: red;"></div>
+		<div id="teamname1box"></div>
+		<div id="teamname1">Hometeam</div>
+
+		<div id="teamlogo1box">
+			<img id="teamlogo1" src="fursty-razorbacks.png">
+		</div>
+
+		<div id="team1timeout1box"></div>
+		<div id="team1timeout2box"></div>
+		<div id="team1timeout3box"></div>
+
+		<div id="spielstand1box"></div>
+		<div id="spielstand1">00</div>
+		<div id="ballbesitz1box"></div>
+
+		<div id="teamfarbe2box" style="background-color: blue;"></div>
+		<div id="teamname2box"></div>
+		<div id="teamname2">Guestteam</div>
+
+		<div id="teamlogo2box">
+			<img id="teamlogo2" src="fursty-razorbacks.png">
+		</div>
+
+		<div id="team2timeout1box"></div>
+		<div id="team2timeout2box"></div>
+		<div id="team2timeout3box"></div>
+
+		<div id="spielstand2box"></div>
+		<div id="spielstand2">00</div>
+		<div id="ballbesitz2box"></div>
+
+		<div id="quarterbox"></div>
+		<div id="quarter">PRE</div>
+		<div id="timebox"></div>
+		<div id="time">12:00</div>
+		<div id="playclockbox"></div>
+		<div id="playclock">:25</div>
+		<div id="downdistancebox"></div>
+		<div id="downdistance">1st & 10</div>
+
+		<div id="scorebox"></div>
+		<div id="scorelogobox">
+			<img id="scorelogo" src="fursty-razorbacks.png">
+		</div>
+		<div id="scorenamebox"></div>
+		<div id="scorename">Score</div>
+
+		<div id="flagbox"></div>
+		<div id="flag">FLAG</div>
+	</div>
+
+	<div id="bauchbinde">
+		<div id="bauchbindebox"></div>
+		<div id="bauchbindetopbox"></div>
+		<div id="bauchbindetoptext"></div>
+		<div id="bauchbindebottombox"></div>
+		<div id="bauchbindebottomtext"></div>
+		<div id="bauchbindegfllogobox">
+			<img id="bauchbindegfllogo" src="gfl-logo.png">
+		</div>
+		<div id="bauchbindelogobox">
+			<img id="bauchbindelogo" src="fursty-razorbacks.png">
+		</div>
+	</div>
+
+	<div id="kommentatoren">
+		<div id="kommentatorenbox"></div>
+		<div id="kommentator1box"></div>
+		<div id="kommentator1text"></div>
+		<div id="kommentator2box"></div>
+		<div id="kommentator2text"></div>
+		<div id="kommentator1logobox">
+			<img id="kommentator1logo" src="fursty-razorbacks.png">
+		</div>
+		<div id="kommentator2logobox">
+			<img id="kommentator2logo" src="fursty-razorbacks.png">
+		</div>
+		<div id="kommentatorgfllogobox">
+			<img id="kommentatorgfllogo" src="gfl-logo.png">
+		</div>
+	</div>
+
+	<div class="container" id="headline">
+		<div class="row">
+			<div class="col-10">GFL Football Scoreboard Game Control</div>
+			<div class="col-2">
+				<a href="index">Home</a>
+			</div>
+		</div>
+	</div>
+	<br>
+
+	<div id="buttonboard">
+		<div class="container" id="controlboard">
+			<div class="row border">
+				<div class="col-3">
+					<button id="startgamebutton" type="button" class="btn btn-danger col">Start Game - KICKOFF</button>
+				</div>
+				<div class="col-2">
+					<button id="runbutton" type="button" class="btn btn-info col">RUN</button>
+				</div>
+				<div class="col-2">
+					<button id="passbutton" type="button" class="btn btn-secondary col">PASS</button>
+				</div>
+				<div class="col-2">
+					<button id="incompletebutton" type="button" class="btn btn-secondary col">Incomplete</button>
+				</div>
+				<div class="col-2">
+					<button id="flagbutton" type="button" class="btn btn-warning col">Flag</button>
+				</div>
+			</div>
+
+
+			<div class="row border">
+				<div class="col-2">
+					<button id="flipsidesbutton" type="button" class="btn btn-dark col">Flip Sides</button>
+				</div>
+				<div class="col-2">
+					<button id="kickoffbutton" type="button" class="btn btn-dark col">Kick off</button>
+				</div>
+				<div class="col-2">
+					<button id="countquarterbutton" type="button" class="btn btn-info col">Quarter</button>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<div id="gameboard">
+		<div id="position"></div>
+		<div id="yardtext"></div>
+		<div id="playtext"></div>
+		<div id="balltext"></div>
+		<div id="actiontext"></div>
+		<div id="lostext"></div>
+		<div id="hashtext"></div>
+
+		<div id="playlog"></div>
+		<div id="fieldpic"><img id="fieldimage" src="american_football_field.png"></div>
+		<div id="field"></div>
+
+		<div id="help"></div>
+
+		<img id="teamlogo1_2" src="fursty-razorbacks.png">
+		<img id="teamlogo2_2" src="fursty-razorbacks.png">
+		<canvas id="lefttd"></canvas>
+		<canvas id="righttd"></canvas>
+		<canvas id="firstdown"></canvas>
+		<canvas id="los"></canvas>
+		<canvas id="mouselos"></canvas>
+		<canvas id="lostopout"></canvas>
+		<canvas id="lostopnum"></canvas>
+		<canvas id="lostophash"></canvas>
+		<canvas id="losmid"></canvas>
+		<canvas id="loslowhash"></canvas>
+		<canvas id="loslownum"></canvas>
+		<canvas id="loslowout"></canvas>
+		<img id="down1" src="yards.png">
+		<img id="down2" src="yards.png">
+		<canvas id="chain"></canvas>
+		<img id="arrowright" src="arrow_right.png">
+		<img id="arrowleft" src="arrow_left.png">
+		<img id="ball" src="ball-border.png">
+		<div id="mouseyardlabel"></div>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script>
+		// socket connection
+		var socket = io.connect('/');
+		// get announcement
+		socket.on('announcement', function(data) {
+			console.log('Received announcement:', data.message);
+		});
+		// scoreboard data loaded
+		socket.on('sendgamedata', function(data) {
+			console.log('sendgamedata:', data);
+			// ----- live overlay update -----
+			// playclock
+			$('#time').text(data.clock);
+			// downclock
+			$('#playclock').text(":"+data.playclock);
+			// control setup
+			if(data.quartershow === 'yes'){
+				$("#quarter").show();
+			}else if(data.quartershow === 'no'){
+				$("#quarter").hide();
+			}
+			if(data.clockshow === 'yes'){
+				$("#time").show();
+			}else if(data.clockshow === 'no'){
+				$("#time").hide();
+			}
+			if(data.playclockshow === 'yes'){
+				$("#playclock").show();
+			}else if(data.playclockshow === 'no'){
+				$("#playclock").hide();
+			}
+			// count
+			$("#quarter").text(data.quarter);
+			if(data.downshow === 'yes' && data.distanceshow === 'yes'){
+				$("#downdistance").text(data.down+' & '+data.distance);
+			}else if(data.downshow === 'yes' && data.distanceshow === 'no'){
+				$("#downdistance").text(data.down+' down');
+			}else if(data.downshow === 'no'){
+				$("#downdistance").text('gfl.info');
+			}
+			// flag
+			if(data.flag === 'yes'){
+				$("#flagbox").show();
+				$("#flag").show();
+			}else if(data.flag === 'no'){
+				$("#flagbox").hide();
+				$("#flag").hide();
+			}
+			// score
+			if(data.score === 'no'){
+				$("#scorebox").hide();
+				$("#scorelogobox").hide();
+				$("#scorenamebox").hide();
+				$("#scorename").hide();
+			}else{
+				$("#scorename").text(data.score);
+				$("#scorelogo").attr("src", data.scorelogo);
+				$("#scorebox").show();
+				$("#scorelogobox").show();
+				$("#scorenamebox").show();
+				$("#scorename").show();
+			}
+			// teams
+			$("#teamname1").text(data.team1);
+			$("#teamlogo1").attr("src", data.logo1);
+			$("#teamlogo1_2").attr("src", data.logo1);
+			$("#teamlogo1_3").attr("src", data.logo1);
+			$("#teamfarbe1box").css( "background-color", data.color1);
+			$("#teamname2").text(data.team2);
+			$("#teamlogo2").attr("src", data.logo2);
+			$("#teamlogo2_2").attr("src", data.logo2);
+			$("#teamlogo2_3").attr("src", data.logo2);
+			$("#teamfarbe2box").css( "background-color", data.color2);
+			if(data.team1timeouts == 3){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").show();
+				$("#team1timeout3box").show();
+			}else if(data.team1timeouts == 2){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").show();
+				$("#team1timeout3box").hide();
+			}else if(data.team1timeouts == 1){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").hide();
+				$("#team1timeout3box").hide();
+			}else if(data.team1timeouts == 0){
+				$("#team1timeout1box").hide();
+				$("#team1timeout2box").hide();
+				$("#team1timeout3box").hide();
+			}
+			if(data.team2timeouts == 3){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").show();
+				$("#team2timeout3box").show();
+			}else if(data.team2timeouts == 2){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").show();
+				$("#team2timeout3box").hide();
+			}else if(data.team2timeouts == 1){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").hide();
+				$("#team2timeout3box").hide();
+			}else if(data.team2timeouts == 0){
+				$("#team2timeout1box").hide();
+				$("#team2timeout2box").hide();
+				$("#team2timeout3box").hide();
+			}
+			if(data.ballbesitz === 'team1'){
+				$("#ballbesitz1box").show();
+				$("#ballbesitz2box").hide();
+			}else if(data.ballbesitz === 'team2'){
+				$("#ballbesitz1box").hide();
+				$("#ballbesitz2box").show();
+			}
+			// score points
+			$("#spielstand1").text(data.points1);
+			$("#spielstand2").text(data.points2);
+			// bauchbinde
+			if(data.showbauchbinde === 'yes'){
+				$("#bauchbindetoptext").text(data.bauchbinde1);
+				$("#bauchbindebottomtext").text(data.bauchbinde2);
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				if(data.bauchbindelogo === ''){
+					$("#bauchbindelogobox").hide();
+				}else{
+					$("#bauchbindelogobox").show();
+				}
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				$("#bauchbinde").show();
+			}else if(data.showbauchbinde === 'no'){
+				$("#bauchbindetoptext").text(data.bauchbinde1);
+				$("#bauchbindebottomtext").text(data.bauchbinde2);
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				$("#bauchbinde").hide();
+			}
+			// kommentatoren
+			if(data.showkommentator === 'yes'){
+				$("#kommentator1text").text(data.kommentator1);
+				$("#kommentator2text").text(data.kommentator2);
+				$("#kommentator1logo").attr("src", data.kommentator1logo);
+				$("#kommentator2logo").attr("src", data.kommentator2logo);
+				if(data.kommentator1logo === ''){
+					$("#kommentator1logobox").hide();
+				}else{
+					$("#kommentator1logobox").show();
+				}
+				if(data.kommentator2logo === ''){
+					$("#kommentator2logobox").hide();
+				}else{
+					$("#kommentator2logobox").show();
+				}
+				$("#kommentatoren").show();
+			}else if(data.showkommentator === 'no'){
+				$("#kommentator1text").text(data.kommentator1);
+				$("#kommentator2text").text(data.kommentator2);
+				$("#kommentator1logo").attr("src", data.kommentator1logo);
+				$("#kommentator2logo").attr("src", data.kommentator2logo);
+				$("#kommentatoren").hide();
+			}
+			// ----- live overlay finished -----
+
+			// field functions
+			// flip sides
+			if(data.team1fieldside === 'left'){
+				team1fieldside = "left";
+				$( "#teamlogo1_2" ).css({ "position": "absolute", "left": 220});
+				team2fieldside = "right";
+				$( "#teamlogo2_2" ).css({ "position": "absolute", "left": 1550});
+			}else{
+				team1fieldside = "right";
+				$( "#teamlogo1_2" ).css({ "position": "absolute", "left": 1550});
+				team2fieldside = "left";
+				$( "#teamlogo2_2" ).css({ "position": "absolute", "left": 220});
+			}
+			teamname1 = data.team1;
+			teamname2 = data.team2;
+		});
+
+		// ----- setup needed variables and click functions for the field -----
+		// mouse position
+		var mX = 0;
+		var mY = 0;
+		// action setup
+		var action = "none"; // action - multiple
+		var actionspot = 50; // spot of the action - yardline
+		var actionhash = ""; // hash position of the action
+		var direction = ""; // play direction - left/right
+		var flag = ""; // flag
+		var ballspot = 50; // spot of the ball - yardline
+		var ballhash = 50; // hash position of the ball
+		var catchspot = 50; // spot of the catch - yardline
+		var hashspot = ""; // hash position of the ball
+		var downplay = 0; // down - 1,2,3,4
+		var playnum = 0; // count
+		var firstdownposition = 50; // spot of the first down - yardline
+		var losposition = 50; // spot of the LOS - yardline
+		var mouselosposition = 50; // spot of the mouse - yardline
+		var mouselostext = 50; // spot of the mouse - yardline as text
+		var mousehashposition = 50; // hash position of the mouse
+		var inbound = ""; // action inbound yes/no
+		// team positions
+		var team1position = "left";
+		var team2position = "right";
+		// team names
+		var teamname1 = "Hometeam";
+		var teamname2 = "Guestteam";
+		var offenseteamname = "Hometeam";
+		var defenseteamname = "Guestteam";
+		// team possessions
+		var kickteam = '';
+		var offense = '';
+		var defense = '';
+		// field left/top x/y and right/bottom x/y
+		var fX = $("#field").offset().left;
+		var fY = $("#field").offset().top;
+		var frX = $("#field").offset().left + $("#field").width();
+		var frY = $("#field").offset().top + $("#field").height();
+		// yardline left x-start position
+		var yard1 = 330;
+		// mouse on los and hash position
+		var losball = 0;
+		var hashball = "";
+		// mouse in field
+		var mouseinfield = "no";
+		// playlog
+		var playlog = '';
+		var score = 'no';
+		// ----- mouse move and click functions -----
+		// body function
+		$( "body" ).on({
+			mousemove: function(event) {
+				console.log("mousemove");
+				// mouse position
+				mX = event.pageX;
+				mY = event.pageY;
+				// los position based on mouse and field position
+				mouselosposition = parseInt((mX - yard1) / 12);
+				// hide all canvas
+				// hide touchdowns
+				$( "#lefttd" ).hide();
+				$( "#righttd" ).hide();
+				// hide first all hash position
+				$( "#mouselos" ).hide();los
+				$( "#lostopout" ).hide();
+				$( "#lostopnum" ).hide();
+				$( "#lostophash" ).hide();
+				$( "#losmid" ).hide();
+				$( "#loslowhash" ).hide();
+				$( "#loslownum" ).hide();
+				$( "#loslowout" ).hide();
+				// check mouse postition
+				// if mouse inside field x positions
+				if(mX > fX && mX < frX){
+					// if mouse inside field y positions
+					if(mY > fY && mY < frY){
+						// mouse inside field
+						mouseinfield = "yes";
+						// check los position
+						mouseLosPosition();
+						// check hash position of ball - y position
+						mouseHashPosition();
+						// show mouse los position
+						showMouseLosPosition();
+					}else{
+						// mouse not inside field
+						mouseinfield = "no";
+					}
+				}else{
+					// mouse not inside field
+					mouseinfield = "no";
+				}
+				writeDetails();
+
+				// check activation of touchdown field
+				if(mouseinfield === "yes"){
+					// check: game-start-choose-kick-off-team
+					if(action === 'gameStartChooseKickOffTeam'){
+						// show left touchdown field
+						if(mouselostext === "Left Touchdown"){
+							$( "#lefttd" ).show();
+						}
+						// show right touchdown field
+						if(mouselostext === "Right Touchdown"){
+							$( "#righttd" ).show();
+						}
+					}
+					// show touchdown field
+					// show left touchdown field
+					if(mouselostext === "Left Touchdown"){
+						$( "#lefttd" ).show();
+					}
+					// show right touchdown field
+					if(mouselostext === "Right Touchdown"){
+						$( "#righttd" ).show();
+					}
+				}
+			}, click: function(event) {
+				console.log("onclick");
+				// check activation inside field
+				if(mouseinfield === "yes"){
+					// check: game-start-choose-kick-off-team
+					if(action === 'gameStartChooseKickOffTeam'){
+						// check activation of touchdown field
+						if(mouselostext === "Left Touchdown" || mouselostext === "Right Touchdown"){
+							// call action
+							gameStartChooseKickOffTeam();
+						}
+					}else if(action === 'ballKickedOffChooseCatchSpot'){
+						// call action
+						ballKickedOffChooseCatchSpot();
+					}else if(action === 'ballKickoffReturnChooseFinalSpot'){
+						// call action
+						ballKickoffReturnChooseFinalSpot();
+					}else if(action === 'runPlay'){
+						// call action
+						runPlay();
+					}else if(action === 'passPlay'){
+						// call action
+						passPlayCatchSpot();
+					}else if(action === 'passCatchChooseFinalSpot'){
+						// call action
+						passCatchChooseFinalSpot();
+					}
+				}
+				writeDetails();
+			}
+		});
+
+		// functions
+		// ----- game action functions -----
+		// gameStartChooseKickOffTeam
+		function gameStartChooseKickOffTeam(){
+			// kickteam side
+			var kickside = '';
+			var kickteamname = '';
+			// left touchdown field
+			if(mouselostext === "Left Touchdown"){
+				// define details
+				kickside = 'left';
+				ballspot = 35;
+				direction = 'right';
+			}
+			// right touchdown field
+			if(mouselostext === "Right Touchdown"){
+				// define details
+				kickside = 'right';
+				ballspot = 100-35;
+				direction = 'left';
+			}
+			// check kickteam
+			if(team1fieldside === kickside){
+				kickteam = 'team1';
+				kickteamname = teamname1;
+			}else{
+				kickteam = 'team2';
+				kickteamname = teamname2;
+			}
+			// show LOS
+			showHash(ballspot, "Middle", "Kickoff");
+			showBall(ballspot, "Middle");
+			$( "#los" ).show();
+			$( "#firstdown" ).hide();
+			$( "#chain" ).hide();
+			$( "#down1" ).hide();
+			$( "#down2" ).hide();
+			// show direction
+			showDirectionArrows(ballspot);
+			// write log
+			playlog =  "team: " + kickteamname + ", play: kickoff, direction: " + direction;
+			writePlaylog("KICKOFF");
+			writeConsole();
+			// next action
+			action = 'ballKickedOffChooseCatchSpot';
+			writeHelp('KICKOFF RETURN', 'Where is the ball catched?<br>MARK THE SPOT!');
+		}
+		// ballKickedOffChooseCatchSpot
+		function ballKickedOffChooseCatchSpot(){
+			// check return team
+			if(kickteam === 'team1'){
+				offense = 'team2';
+				defense = 'team1';
+			}else{
+				offense = 'team1';
+				defense = 'team2';
+			}
+			getTeamnames();
+			// define details
+			catchspot = mouselosposition;
+			showHash(catchspot, mousehashposition, "Kickoff-Return");
+			showBall(catchspot, mousehashposition);
+			$( "#los" ).show();
+			// write log
+			playlog = "team: " + offenseteamname + ", catch: " + catchspot + ", hash: " + mousehashposition;
+			writePlaylog("KICKRETURN");
+			writeConsole();
+			// next action
+			action = 'ballKickoffReturnChooseFinalSpot';
+			writeHelp('KICKOFF RETURN', 'Where is the ball returned?<br>MARK THE SPOT!');
+		}
+		// ballKickoffReturnChooseFinalSpot
+		function ballKickoffReturnChooseFinalSpot(){
+			// check return team
+			if(kickteam === 'team1'){
+				offense = 'team2';
+				defense = 'team1';
+			}else{
+				offense = 'team1';
+				defense = 'team2';
+			}
+			getTeamnames();
+			// check direction -> opposite to kick = flip
+			if(direction === 'left'){
+				direction = 'right';
+			}else if(direction === 'right'){
+				direction = 'left';
+			}
+			// define details
+			ballspot = mouselosposition;
+			losposition = ballspot;
+			showHash(ballspot, mousehashposition, "Down");
+			showBall(ballspot, mousehashposition);
+			$( "#los" ).show();
+			// get first down position and chain
+			setNewFirstDownLocation();
+			// write log
+			playlog = "team: " + offenseteamname + ", play: return, spot: " + ballspot + ", hash: " + mousehashposition + "KICKRETURN";
+			writePlaylog(downplay);
+			writeConsole();
+			// next action
+			action = 'pickNextPlay';
+			writeHelp( downplay, offenseteamname);
+		}
+		/*
+		// firstDown
+		function firstDown(){
+			downplay = 1;
+			getTeamnames();
+			// write log
+			writePlaylog( "FIRSTDOWN", offenseteamname + ", spot: " + losball + ", hash: " + hashball);
+			showHash(ballspot, hashball, "Down");
+			showBall(ballspot, hashball);
+			$( "#los" ).show();
+			// get first down position and chain
+			newFirstDownLocation();
+			// next action
+			action = 'pickNextPlay';
+			writeHelp('FIRST DOWN ' + offenseteamname + '!');
+		}
+		*/
+		// runPlay
+		function runPlay(){
+			getTeamnames();
+			// define details
+			downplay = downplay + 1;
+			ballspot = mouselosposition;
+			losposition = ballspot;
+			showHash(ballspot, mousehashposition, "Down");
+			showBall(ballspot, mousehashposition);
+			$( "#los" ).show();
+			// check score
+			checkScore(ballspot);
+			if(score === 'no'){
+				// check first down position and chain
+				checkFirstDownLocation();
+				// write log
+				playlog = "team: " + offenseteamname + ", play: run, spot: " + ballspot + ", hash: " + mousehashposition;
+				writePlaylog(downplay);
+				writeConsole();
+				// next action
+				action = 'pickNextPlay';
+				writeHelp( downplay, offenseteamname);
+			}
+		}
+		// passPlayCatchSpot
+		function passPlayCatchSpot(){
+			getTeamnames();
+			// define details
+			catchspot = mouselosposition;
+			// write log
+			playlog = "team: " + offenseteamname + ", play: pass, spot: " + catchspot + ", hash: " + mousehashposition;
+			writePlaylog("CATCH");
+			showHash(catchspot, mousehashposition, "Catch");
+			showBall(catchspot, mousehashposition);
+			$( "#los" ).show();
+			// check score
+			checkScore(catchspot);
+			if(score === 'no'){
+				// next action
+				action = 'passCatchChooseFinalSpot';
+				writeHelp("Catch", 'Where is the ball spotted? MARK THE SPOT!');
+			}
+		}
+		// passCatchChooseFinalSpot
+		function passCatchChooseFinalSpot(){
+			getTeamnames();
+			// define details
+			downplay = downplay + 1;
+			ballspot = mouselosposition;
+			losposition = ballspot;
+			showHash(ballspot, mousehashposition, "Down");
+			showBall(ballspot, mousehashposition);
+			$( "#los" ).show();
+			// check score
+			checkScore(ballspot);
+			if(score === 'no'){
+				// check first down position and chain
+				checkFirstDownLocation();
+				// write log
+				playlog = "team: " + offenseteamname + ", play: yac, spot: " + ballspot + ", hash: " + mousehashposition;
+				writePlaylog(downplay);
+				// next action
+				action = 'pickNextPlay';
+				writeHelp(downplay, offenseteamname);
+			}
+		}
+		// incompletePassPlay
+		function incompletePassPlay(){
+			getTeamnames();
+			// define details
+			downplay = downplay + 1;
+			ballspot = losposition;
+			showHash(ballspot, ballhash, "Down");
+			showBall(ballspot, ballhash);
+			$( "#los" ).show();
+			// check first down position and chain
+			checkFirstDownLocation();
+			// write log
+			playlog = "team: " + offenseteamname + ", play: pass-incomplete, spot: " + ballspot + ", hash: " + ballhash;
+			writePlaylog(downplay);
+			// next action
+			action = 'pickNextPlay';
+			writeHelp(downplay, offenseteamname);
+		}
+		// ----- show functions -----
+		// show direction
+		function showDirectionArrows(spot){
+			// show direction
+			if(direction === 'right'){
+				$( "#arrowright" ).show();
+				$( "#arrowleft" ).hide();
+			}else{
+				$( "#arrowright" ).hide();
+				$( "#arrowleft" ).show();
+			}
+			// place arrow
+			var posX = (spot*12)+yard1;
+			$( "#arrowright" ).css({ "position": "absolute", "left": posX+20});
+			$( "#arrowleft" ).css({ "position": "absolute", "left": posX-100});
+		}
+		// calculate and show first down position
+		function setNewFirstDownLocation(){
+			var posX = (losposition*12)+yard1;
+			// get direction of play and calculate first down
+			if(direction === 'left'){
+				firstdownposition = losposition - 10;
+			}else{
+				firstdownposition = losposition + 10;
+			}
+			// check if first down below 0 or above 100
+			if(firstdownposition < 0){
+				firstdownposition = 0;
+			}else if(firstdownposition > 100){
+				firstdownposition = 100;
+			}
+			// x position = First Down*12 + staring yard line
+			var posX = (firstdownposition*12)+yard1;
+			// move to position
+			$( "#firstdown" ).css({ "position": "absolute", "left": posX});
+			$( "#firstdown" ).show();
+			showChain();
+			// down = 1st down
+			downplay = 1;
+		}
+		// check if points scored
+		function checkScore(spot){
+			score = 'no';
+			// get direction of play
+			if(direction === 'left'){
+				// check ball spot left
+				if(spot < 0){
+					// touchdown
+					score = 'TOUCHDOWN';
+					playlog = "team: " + offenseteamname + ", score: " + score;
+					writePlaylog("SCORE");
+					writeHelp("TOUCHDOWN - " + offenseteamname, 'Choose Extrapoint!');
+				}else if(spot > 100){
+					// check if action kickoff return
+					if(action === 'ballKickoffReturnChooseFinalSpot'){
+						// touchback
+						score = 'TOUCHBACK';
+						playlog = "team: " + offenseteamname + ", info: " + score;
+						writePlaylog("TOUCHBACK");
+						writeHelp("TOUCHBACK - " + offenseteamname, 'Choose Extrapoint!');
+					}else{
+						// safety
+						score = 'SAFETY';
+						playlog = "team: " + defenseteamname + ", score: " + score;
+						writePlaylog("SCORE");
+						writeHelp("SAFETY - " + offenseteamname, 'xxx!');
+					}
+				}
+			}else if(direction === 'right'){
+				// check ball spot right
+				if(spot > 100){
+					// touchdown
+					score = 'TOUCHDOWN';
+					playlog = "team: " + offenseteamname + ", score: " + score;
+					writePlaylog("SCORE");
+					writeHelp("TOUCHDOWN - " + offenseteamname, 'Choose Extrapoint!');
+				}else if(spot < 0){
+					// check if action kickoff return
+					if(action === 'ballKickoffReturnChooseFinalSpot'){
+						// touchback
+						score = 'TOUCHBACK';
+						playlog = "team: " + offenseteamname + ", info: " + score;
+						writePlaylog("TOUCHBACK");
+						writeHelp("TOUCHBACK - " + offenseteamname, 'Choose Extrapoint!');
+					}else{
+						// safety
+						score = 'SAFETY';
+						playlog = "team: " + defenseteamname + ", score: " + score;
+						writePlaylog("SCORE");
+						writeHelp("SAFETY - " + offenseteamname, 'xxx!');
+					}
+				}
+			}
+		}
+		// calculate and show first down position
+		function checkFirstDownLocation(){
+			var posX = (mouselosposition*12)+yard1;
+			var firstdownachieved = 'no';
+			// get direction of play and calculate first down
+			if(direction === 'left' && mouseinfield === 'yes'){
+				if(firstdownposition < mouselosposition){
+					// no first down, nothing to do
+					firstdownachieved = 'no';
+				}else{
+					// new first down
+					setNewFirstDownLocation();
+				}
+			}else if(direction === 'right' && mouseinfield === 'yes'){
+				if(firstdownposition > mouselosposition){
+					// no first down, nothing to do
+					firstdownachieved = 'no';
+				}else{
+					// new first down
+					setNewFirstDownLocation();
+				}
+			}
+			// check if 4th down and no first down - change of posession
+			if(downplay > 4 && firstdownachieved === 'no'){
+				// 4th down and no first down - change of posession
+				changeOfPossession();
+			}
+		}
+		// calculate and show chain
+		function showChain(){
+			var down1posX = (losposition*12)+yard1;
+			var down2posX = (firstdownposition*12)+yard1;
+			// move to position
+			$( "#down1" ).css({ "position": "absolute", "left": down1posX});
+			$( "#down2" ).css({ "position": "absolute", "left": down2posX});
+			$( "#down1" ).show();
+			$( "#down2" ).show();
+			// calculate size of chain
+			var chainleft = 0;
+			var chainsize = 0;
+			if(down1posX > down2posX){
+				chainleft = down2posX;
+				chainsize = down1posX - down2posX;
+			}else{
+				chainleft = down1posX;
+				chainsize = down2posX - down1posX;
+			}
+			$( "#chain" ).css({ "position": "absolute", "left": chainleft+5, "width": chainsize});
+			$( "#chain" ).show();
+			// show direction
+			showDirectionArrows(losposition);
+		}
+		// check mouse LOS position
+		function mouseLosPosition(){
+			if(mouselosposition < 0){
+				mouselostext = "Left Touchdown";
+			}else if(mouselosposition == 0){
+				mouselostext = "Left Inches";
+			}else if(mouselosposition > 0 && mouselosposition < 50){
+				mouselostext = "Left "+mouselosposition;
+			}else if(mouselosposition == 50){
+				mouselostext = mouselosposition;
+			}else if(mouselosposition > 50 && mouselosposition < 100){
+				mouselostext = "Right "+(100 - mouselosposition);
+			}else if(mouselosposition == 100){
+				mouselostext = "Right Inches";
+			}else{
+				mouselostext = "Right Touchdown";
+			}
+		}
+		// check mouse hash position of ball - y position
+		function mouseHashPosition(){
+			if(mY > 100 && mY < 110){
+				mousehashposition = "Top out of bounds";
+			}else if(mY > 110 && mY < 195){
+				mousehashposition = "Top above numbers";
+			}else if(mY > 195 && mY < 280){
+				mousehashposition = "Top inside hash";
+			}else if(mY > 280 && mY < 420){
+				mousehashposition = "Middle";
+			}else if(mY > 420 && mY < 505){
+				mousehashposition = "Low inside hash";
+			}else if(mY > 505 && mY < 590){
+				mousehashposition = "Low above numbers";
+			}else if(mY > 590 && mY < 600){
+				mousehashposition = "Low out of bounds";
+			}
+		}
+		// show mouse LOS position
+		function showMouseLosPosition(){
+			// move green los to mouse x
+			$( "#mouselos" ).css({ "position": "absolute", "left": mX-5});
+			// move all hash indicator positions to mouse x
+			$( "#lostopout" ).css({ "position": "absolute", "left": mX-5});
+			$( "#lostopnum" ).css({ "position": "absolute", "left": mX-5});
+			$( "#lostophash" ).css({ "position": "absolute", "left": mX-5});
+			$( "#losmid" ).css({ "position": "absolute", "left": mX-5});
+			$( "#loslowhash" ).css({ "position": "absolute", "left": mX-5});
+			$( "#loslownum" ).css({ "position": "absolute", "left": mX-5});
+			$( "#loslowout" ).css({ "position": "absolute", "left": mX-5});
+			// show mouselos
+			$( "#mouselos" ).show();
+			// hash location hide first
+			$( "#lostopout" ).hide();
+			$( "#lostopnum" ).hide();
+			$( "#lostophash" ).hide();
+			$( "#losmid" ).hide();
+			$( "#loslowhash" ).hide();
+			$( "#loslownum" ).hide();
+			$( "#loslowout" ).hide();
+			// hash top out of bounds
+			if(mousehashposition === "Top out of bounds"){
+				$( "#lostopout" ).show();
+			}
+			// hash top above numbers
+			if(mousehashposition === "Top above numbers"){
+				$( "#lostopnum" ).show();
+			}
+			// hash top inside hash
+			if(mousehashposition === "Top inside hash"){
+				$( "#lostophash" ).show();
+			}
+			// hash middle
+			if(mousehashposition === "Middle"){
+				$( "#losmid" ).show();
+			}
+			// hash low inside hash
+			if(mousehashposition === "Low inside hash"){
+				$( "#loslowhash" ).show();
+			}
+			// hash low above numbers
+			if(mousehashposition === "Low above numbers"){
+				$( "#loslownum" ).show();
+			}
+			// hash low out of bounds
+			if(mousehashposition === "Low out of bounds"){
+				$( "#loslowout" ).show();
+			}
+		}
+		// write play log down
+		function writePlaylog(down){
+			// count playnumber
+			playnum = playnum + 1;
+			var downtext = down;
+			// check first down
+			if(down == 1){
+				downtext = "1stDOWN";
+			}else if(down == 2){
+				downtext = "2ndDOWN";
+			}else if(down == 3){
+				downtext = "3rdDOWN";
+			}else if(down == 4){
+				downtext = "4thDOWN";
+			}
+			// write log
+			$( "#playlog" ).prepend("#" + playnum + " - " + playlog + " - " + downtext + "<br>");
+		}
+		// write details
+		function writeDetails(){
+			// write details
+			$( "#position" ).text( "X:" + mX + ",Y:" + mY);
+			$( "#yardtext" ).text("LOS: " + losposition + ", FD: " + firstdownposition);
+			$( "#playtext" ).text("Down: " + downplay + ", #: " + playnum + ", Dir: " + direction);
+			$( "#balltext" ).text("Ball: " + ballspot + ", " + ballhash);
+			$( "#actiontext" ).text("A: " + action);
+			$( "#lostext" ).text("Yardline: " + mouselosposition);
+			$( "#hashtext" ).text("Hash: " + mousehashposition);
+			// move LOS and hash text to LOS
+			$( "#lostext" ).css({ "position": "absolute", "left": mX});
+			$( "#hashtext" ).css({ "position": "absolute", "left": mX});
+			// show mouse yard label and move label to mouse pointer
+			if(mouseinfield === 'yes'){
+				$( "#mouseyardlabel" ).text(mouselosposition + "y");
+				$( "#mouseyardlabel" ).css({ "position": "absolute", "left": mX+20, "top": mY-40});
+				$( "#mouseyardlabel" ).show();
+			}else{
+				$( "#mouseyardlabel" ).hide();
+			}
+		}
+		// write help
+		function writeHelp(down, data){
+			var downtext = down;
+			var yardtogo = 0;
+			// check first down
+			if(down == 1){
+				downtext = "1st";
+			}else if(down == 2){
+				downtext = "2nd";
+			}else if(down == 3){
+				downtext = "3rd";
+			}else if(down == 4){
+				downtext = "4th";
+			}
+			// check if down set and get yard to go
+			if(direction === 'left' && down > 0){
+				yardtogo = losposition - firstdownposition;
+				downtext = downtext + ' & ' + yardtogo;
+			}else if(direction === 'right' && down > 0){
+				yardtogo = firstdownposition - losposition;
+				downtext = downtext + ' & ' +  yardtogo;
+			}
+			// text
+			$('#help').html('<p>' + downtext + ' - ' + data + '</p>');
+		}
+		// show LOS and hash position
+		function showHash(los, hash, type){
+			// x position = LOS*12 + staring yard line - 8 pixel
+			var posX = (los*12)+yard1;
+			// move los to mouse x
+			$( "#los" ).css({ "position": "absolute", "left": posX});
+			// check hash type color
+			if(type === 'Kickoff'){
+				// blue basic
+				$( "#los" ).css({ "background-color": "#0000ff"});
+			}else if(type === 'Kickoff-Return'){
+				// red = catch
+				$( "#los" ).css({ "background-color": "#ff0000"});
+			}else if(type === 'Down'){
+				// blue basic
+				$( "#los" ).css({ "background-color": "#0000ff"});
+			}else if(type === 'Catch'){
+				// red = catch
+				$( "#los" ).css({ "background-color": "#ff0000"});
+			}else{
+				// blue basic
+				$( "#los" ).css({ "background-color": "#0000ff"});
+			}
+		}
+		// show ball on LOS and hash position
+		function showBall(los, hash){
+			// x position = LOS*12 + staring yard line - 8 pixel
+			var posX = (los*12)+yard1;
+			// y position middle
+			var posY = 350;
+			// hash top out of bounds
+			if(hash === "Top out of bounds"){
+				posY = 280;
+			}
+			// hash top above numbers
+			if(hash === "Top above numbers"){
+				posY = 280;
+			}
+			// hash top inside hash
+			if(hash === "Top inside hash"){
+				posY = 280;
+			}
+			// hash middle
+			if(hash === "Middle"){
+				posY = 350;
+			}
+			// hash low inside hash
+			if(hash === "Low inside hash"){
+				posY = 420;
+			}
+			// hash low above numbers
+			if(hash === "Low above numbers"){
+				posY = 420;
+			}
+			// hash low out of bounds
+			if(hash === "Low out of bounds"){
+				posY = 420;
+			}
+			ballhash = hash;
+			// move ball to moouse position
+			$( "#ball" ).css({ "position": "absolute", "left": posX-5, "top": posY-10});
+		}
+		// ----- other functions -----
+		// changeOfPossession
+		function changeOfPossession(){
+			// flip teams
+			if(offense === 'team1'){
+				offense = 'team2';
+				defense = 'team1';
+			}else{
+				offense = 'team1';
+				defense = 'team2';
+			}
+			getTeamnames();
+			// check direction -> opposite to kick = flip
+			if(direction === 'left'){
+				direction = 'right';
+			}else if(direction === 'right'){
+				direction = 'left';
+			}
+			// define details
+			ballspot = losposition;
+			showHash(ballspot, ballhash, "Down");
+			showBall(ballspot, ballhash);
+			$( "#los" ).show();
+			// write log
+			writePlaylog( "Change of Possession");
+			// get first down position and chain
+			setNewFirstDownLocation();
+			// write log
+			playlog = "team: " + offenseteamname + ", play: change-of-possession, spot: " + ballspot + ", hash: " + ballhash;
+			writePlaylog(downplay);
+			writeConsole();
+			// next action
+			action = 'pickNextPlay';
+			writeHelp( downplay, offenseteamname);
+		}
+		// write console
+		function writeConsole(){
+			console.log("Mouse:"+mX+","+mY+"; Team1:"+teamname1+","+team1position+", Team2:"+teamname2+","+team2position+"; Kickteam:"+kickteam+", O:"+offense+", D:"+defense);
+			console.log("Action:"+action+", spot:"+actionspot+","+actionhash+"; direction:"+direction+"; flag:"+flag);
+			console.log("Ball:"+ballspot+","+ballhash+", catchspot:"+catchspot+", hashspot:"+hashspot+"; inbound:"+inbound);
+			console.log("Play:"+playnum+", Down:"+downplay+", LOS:"+losposition+", FIRST:"+firstdownposition+", M-LOS:"+mouselosposition+","+mousehashposition);
+		}
+		// get teamnames
+		function getTeamnames(){
+			// offensename
+			if(offense === 'team1'){
+				offenseteamname = teamname1;
+			}else if(offense === 'team2'){
+				offenseteamname = teamname2;
+			}
+			// defensename
+			if(defense === 'team1'){
+				defenseteamname = teamname1;
+			}else if(defense === 'team2'){
+				defenseteamname = teamname2;
+			}
+
+		}
+
+		// document loaded
+		$(document).ready(function(){
+			// send message
+			socket.emit('requestgamedata', { message: 'Request game data' });
+			// change the url to a clean one
+			var cleanURL = "stats";//the new URL
+			window.history.pushState({}, document.title, "/" + cleanURL );
+
+			// hide initial
+			$( "#los" ).hide();
+			$( "#firstdown" ).hide();
+			$( "#chain" ).hide();
+			$( "#down1" ).hide();
+			$( "#down2" ).hide();
+			$( "#arrowright" ).hide();
+			$( "#arrowleft" ).hide();
+			writeHelp('For GAME START','Klick on<br>Start Game Button<br>to begin!');
+
+			// ----- button functions -----
+			// flip sides button
+			$("#flipsidesbutton").click(function(event){
+				console.log('flipsidesbutton clicked:', event);
+				socket.emit('flipsides', { message: 'flip sides' });
+			});
+			// startgame button
+			$("#startgamebutton").click(function(event){
+				console.log('startgamebutton clicked:', event);
+				// check action status
+				if(action === 'none' || action === 'gameStopped'){
+					writeHelp('KICK OFF',' Klick on Team Logo of the KICKING team!<br>CLOCK STARTs on CLICK!');
+					writeConsole();
+					action = 'gameStartChooseKickOffTeam';
+				}
+				//socket.emit('startgame', { message: 'start game' });
+			});
+			// run button
+			$("#runbutton").click(function(event){
+				console.log('runbutton clicked:', event);
+				// check action status
+				if(action === 'pickNextPlay'){
+					writeHelp('RUN PLAY','spot the Ball!');
+					writeConsole();
+					action = 'runPlay';
+				}
+				//socket.emit('startgame', { message: 'start game' });
+			});
+			// pass button
+			$("#passbutton").click(function(event){
+				console.log('passbutton clicked:', event);
+				// check action status
+				if(action === 'pickNextPlay'){
+					writeHelp('PASS PLAY', 'where was the catch, spot the CATCH!');
+					writeConsole();
+					action = 'passPlay';
+				}
+				//socket.emit('startgame', { message: 'start game' });
+			});
+			// incomplete button
+			$("#incompletebutton").click(function(event){
+				console.log('incompletebutton clicked:', event);
+				// check action status
+				if(action === 'passPlay' || action === 'passCatchChooseFinalSpot'){
+					incompletePassPlay();
+					writeConsole();
+				}
+				//socket.emit('startgame', { message: 'start game' });
+			});
+			// kickoff button
+			$("#kickoffbutton").click(function(event){
+				console.log('kickoffbutton clicked:', event);
+				writeHelp('Ball Kicked off. Klick where the RETURN is stopped!');
+				action = 'ballKickedOffChooseReturnSpot';
+				//socket.emit('startgame', { message: 'start game' });
+			});
+			// counts
+			$( "#countquarterbutton" ).on( "click", function(event) {
+				console.log('countquarterbutton clicked:', event);
+				socket.emit('countquarter', { message: 'count quarter' });
+			});
+			// ----- button functions -----
+		});
+	</script>
+</body>
+ 
+</html>

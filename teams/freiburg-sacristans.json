@@ -1,0 +1,14 @@
+{
+  "team_name": "Freiburg Sacristans",
+  "name": "Sacristans",
+  "color": "#4d3082",
+  "logo": "freiburg-sacristans.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

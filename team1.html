@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL-TV Scoreboard Team1 Names</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+	</style> 
+</head>
+ 
+<body>
+
+	<div class="container-fluid" id="headline">
+		<div class="row">
+			<div class="col-1">
+				<div id="teamlogo1box_2">
+					<img class="img-fluid" id="teamlogo1_2" src="fursty-razorbacks.png">
+				</div>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="index" class="btn btn-dark btn-block p-4" role="button">Home</a>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="control" class="btn btn-primary btn-block p-4" role="button">Control</a>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="team2" class="btn btn-warning btn-block p-4" role="button">Team2 names</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="team">
+	</div>
+
+	<div class="container-fluid" id="show-team-name">
+		<div class="row">
+			<div class="col-sm mb-2">
+				<button type="button" class="btn btn-info btn-block p-4" data-toggle="collapse" data-target="#teamnames">Show/Hide player list</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid collapse" id="teamnames">
+	</div>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script>
+		// socket connection
+		var socket = io.connect('/');
+		// get announcement
+		socket.on('announcement', function(data) {
+			console.log('Received announcement:', data.message);
+		});
+		// scoreboard data loaded
+		var teamimage = '';
+		socket.on('sendgamedata', function(data) {
+			console.log('sendgamedata:', data);
+			// teams
+			$("#teamname1").text(data.team1);
+			$("#teamlogo1").attr("src", data.logo1);
+			$("#teamlogo1_2").attr("src", data.logo1);
+			$("#teamlogo1_3").attr("src", data.logo1);
+			$("#teamfarbe1box").css( "background-color", data.color1);
+			$("#teamname2").text(data.team2);
+			$("#teamlogo2").attr("src", data.logo2);
+			$("#teamlogo2_2").attr("src", data.logo2);
+			$("#teamlogo2_3").attr("src", data.logo2);
+			$("#teamfarbe2box").css( "background-color", data.color2);
+			teamimage = data.logo1;
+		});
+		// players data loaded
+		socket.on('sendplayerlist', function(data) {
+			console.log('sendplayerlist:', data);
+			// setup player list
+			// create html
+			var teamnames = '<form action="" id="updateID">';
+			// create update button
+			teamnames += '<div class="row"><div class="col-sm mb-2"><button type="button" class="btn btn-success btn-block updatebutton p-4" value="updatebutton">Update/upload team list></button></div></div>';
+			var number = 0;
+			// loop data
+			for(let player of data.team1players){
+				// add row
+				teamnames += '<div class="row">';
+				// increase number
+				number = number + 1;
+				// add name field
+				teamnames += '<div class="col-1 mb-2"><label for="name'+number+'" class="form-label float-right">Name:</label></div><div class="col-3 mb-2"><input type="text" class="form-control font-weight-bold" id="name'+number+'" value="'+player["name"]+'"></div>';
+				// add position field
+				teamnames += '<div class="col-1 mb-2"><label for="position'+number+'" class="form-label float-right">Position:</label></div><div class="col-3 mb-2"><input type="text" class="form-control font-weight-bold" id="position'+number+'" value="'+player["position"]+'"></div>';
+				// add number field
+				teamnames += '<div class="col-2 mb-2"><label for="number'+number+'" class="form-label float-right">Number or shortcut:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="number'+number+'" value="'+player["number"]+'"></div>';
+				// finish row
+				teamnames += '</div>';
+			}
+			// add empty rows for additional players up to 100
+			while(number<100){
+				// add row
+				teamnames += '<div class="row">';
+				// increase number
+				number = number + 1;
+				// add name field
+				teamnames += '<div class="col-1 mb-2"><label for="name'+number+'" class="form-label float-right">Name:</label></div><div class="col-3 mb-2"><input type="text" class="form-control font-weight-bold" id="name'+number+'"></div>';
+				// add position field
+				teamnames += '<div class="col-1 mb-2"><label for="position'+number+'" class="form-label float-right">Position:</label></div><div class="col-3 mb-2"><input type="text" class="form-control font-weight-bold" id="position'+number+'"></div>';
+				// add number field
+				teamnames += '<div class="col-2 mb-2"><label for="number'+number+'" class="form-label float-right">Number or shortcut:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="number'+number+'"></div>';
+				// finish row
+				teamnames += '</div>';
+			}
+			// finalize form
+			teamnames += '</form>';
+			// add html to container
+			$('#teamnames').html(teamnames);
+
+			// setup player buttons
+			// create html
+			var teamhtml = '<div class="row"><div class="col-sm mb-2"><button type="button" class="btn btn-secondary hidebutton btn-block p-4" value="hide"><b>Hide</b></button></div>';
+			// loop data
+			for(let player of data.team1players){
+				// check player has number (no number is coach - RED)
+				if(isNaN(player["number"])){
+					// add coach button
+					teamhtml += '<div class="col-sm mb-2"><button type="button" class="btn btn-outline-dark playerbutton btn-block p-4" value="'+player["number"]+'"><b>'+player["number"]+'</b>, '+player["name"]+'</button></div>';
+				}else{
+					// add button
+					teamhtml += '<div class="col-sm mb-2"><button type="button" class="btn btn-danger playerbutton btn-block p-4" value="'+player["number"]+'"><b>#'+player["number"]+'</b>, '+player["name"]+'</button></div>';
+				}
+			}
+			// finish html
+			teamhtml += '</div>';
+			// add html to container
+			$('#team').html(teamhtml);
+		});
+
+		// document loaded
+		$(document).ready(function(){
+			// send message
+			socket.emit('requestgamedata', { message: 'Request game data' });
+			// send message
+			socket.emit('requestplayerlist', { message: 'Request player list' });
+			// ----- button functions -----
+			// add click function to dynamic created buttons
+			$(document).on("click",".playerbutton", function() {
+				console.log('Playerbutton clicked:', $(this).val());
+				socket.emit('bauchbindeTeam1player', { player: $(this).val() });
+			});
+			$(document).on("click",".hidebutton", function() {
+				console.log('Hidebutton clicked:', $(this).val());
+				socket.emit('bauchbindeHide');
+			});
+
+			// add click function to update button
+			$(document).on("click",".updatebutton", function() {
+				console.log('Updatebutton clicked:', $(this).val());
+				// get all players, start json
+				var teamplayers = '[';
+				var skip = false;
+				// Select all the input elements with the type of text
+		        $("#updateID input[type=text]").each(function () {
+		        	// check id = name
+		        	if(this.id.startsWith("name")){
+		        		// check empty string
+		        		if(!this.value){
+		        			// skip player
+		        			skip = true;
+		        		}else{
+		        			skip = false;
+		        			// add json field start
+			        		teamplayers += '{';
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamplayers += '"name": "'+value+'"';
+			        		teamplayers += ',';
+		        		}
+		        	}else if(this.id.startsWith("position")){
+		        		// check empty string
+		        		if(skip){
+		        			// skip player
+		        		}else if(!this.value){
+		        			// empty position
+			        		teamplayers += '"position": " "';
+			        		teamplayers += ',';
+			        	}else{
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamplayers += '"position": "'+value+'"';
+			        		teamplayers += ',';
+			        	}
+		        	}else if(this.id.startsWith("number")){
+		        		// check empty string
+		        		if(skip){
+		        			// skip player
+		        		}else if(!this.value){
+		        			// empty number
+			        		teamplayers += '"number": " "';
+			        		teamplayers += ',';
+			        		teamplayers += '"image": "'+teamimage+'"';
+			        		teamplayers += '},';
+			        	}else{
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamplayers += '"number": "'+value+'"';
+			        		teamplayers += ',';
+			        		teamplayers += '"image": "'+teamimage+'"';
+			        		teamplayers += '},';
+			        	}
+		        	}
+		        });
+		        // cut last character
+		        var teamplayerlist = teamplayers.slice(0, -1);
+		        // end json
+		        teamplayerlist += ']';
+		        socket.emit('updateTeam1player', teamplayerlist);
+		        location.reload();
+			});
+			// ----- button functions end -----
+		});
+	</script>
+</body>
+ 
+</html>

@@ -1,0 +1,14 @@
+{
+  "team_name": "Duesseldorf Panther",
+  "name": "Panther",
+  "color": "#000000",
+  "logo": "duesseldorf-panther.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

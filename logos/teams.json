@@ -1,0 +1,98 @@
+[
+  {
+    "team_name": "Fursty Razorbacks",
+    "name": "Razorbacks",
+    "color": "#ee1818",
+    "logo": "fursty-razorbacks.png"
+  },
+  {
+    "team_name": "Bad Homburg Sentinels",
+    "name": "Sentinels",
+    "color": "#4169e1",
+    "logo": "bad-homburg-sentinels.png"
+  },
+  {
+    "team_name": "Biberach Beavers",
+    "name": "Beavers",
+    "color": "#222c52",
+    "logo": "biberach-beavers.png"
+  },
+  {
+    "team_name": "Cologne Crocodiles",
+    "name": "Crocodiles",
+    "color": "#feae20",
+    "logo": "cologne-crocodiles.png"
+  },
+  {
+    "team_name": "Duesseldorf Panther",
+    "name": "Panther",
+    "color": "#000000",
+    "logo": "duesseldorf-panther.png"
+  },
+  {
+    "team_name": "Frankfurt Pirates",
+    "name": "Pirates",
+    "color": "#eec11e",
+    "logo": "frankfurt-pirates.png"
+  },
+  {
+    "team_name": "Freiburg Sacristans",
+    "name": "Sacristans",
+    "color": "#4d3082",
+    "logo": "freiburg-sacristans.png"
+  },
+  {
+    "team_name": "Hamburg Huskies",
+    "name": "Huskies",
+    "color": "#000000",
+    "logo": "hamburg-huskies.png"
+  },
+  {
+    "team_name": "Kirchdorf Wildcats",
+    "name": "Wildcats",
+    "color": "#818181",
+    "logo": "kirchdorf-wildcats.png"
+  },
+  {
+    "team_name": "Munich Cowboys",
+    "name": "Cowboys",
+    "color": "#fab400",
+    "logo": "munich-cowboys.png"
+  },
+  {
+    "team_name": "Munich Rangers",
+    "name": "Rangers",
+    "color": "#ef7c00",
+    "logo": "munich-rangers.png"
+  },
+  {
+    "team_name": "Nuernberg Rams",
+    "name": "Rams",
+    "color": "#01152e",
+    "logo": "nuernberg-rams.png"
+  },
+  {
+    "team_name": "Schwaebisch Hall Unicorns",
+    "name": "Unicorns",
+    "color": "#003333",
+    "logo": "schwaebisch-hall-unicorns.png"
+  },
+  {
+    "team_name": "Straubing Spiders",
+    "name": "Spiders",
+    "color": "#00204c",
+    "logo": "straubing-spiders.png"
+  },
+  {
+    "team_name": "Stuttgart Scorpions",
+    "name": "Scorpions",
+    "color": "#ff0000",
+    "logo": "stuttgart-scorpions.png"
+  },
+  {
+    "team_name": "Wiesbaden Phantoms",
+    "name": "Phantoms",
+    "color": "#001f56",
+    "logo": "wiesbaden-phantoms.png"
+  }
+]

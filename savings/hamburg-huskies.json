@@ -1,0 +1,14 @@
+{
+  "team_name": "Hamburg Huskies",
+  "name": "Huskies",
+  "color": "#000000",
+  "logo": "hamburg-huskies.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

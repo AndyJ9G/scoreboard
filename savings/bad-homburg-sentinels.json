@@ -1,0 +1,14 @@
+{
+  "team_name": "Bad Homburg Sentinels",
+  "name": "Sentinels",
+  "color": "#4169e1",
+  "logo": "bad-homburg-sentinels.png",
+  "players": [
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

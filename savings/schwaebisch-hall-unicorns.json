@@ -1,0 +1,14 @@
+{
+  "team_name": "Schwaebisch Hall Unicorns",
+  "name": "Unicorns",
+  "color": "#003333",
+  "logo": "schwaebisch-hall-unicorns.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "team_name": "Wiesbaden Phantoms",
+  "name": "Phantoms",
+  "color": "#001f56",
+  "logo": "wiesbaden-phantoms.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

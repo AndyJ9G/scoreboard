@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL Scoreboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    	.row {
+			background-color: #dddddd;
+		}
+	</style> 
+</head>
+ 
+<body>
+
+	<div class="container-fluid" id="headline">
+		<div class="row">
+			<div class="col-sm mb-2">
+				<a href="index" class="btn btn-dark btn-block p-4" role="button">GFL Football Stats and Scoreboard Home</a>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="team1" class="btn btn-danger btn-block p-4" role="button">Team1 names</a>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="team2" class="btn btn-warning btn-block p-4" role="button">Team2 names</a>
+			</div>
+		</div>
+	</div>
+	<div id="controlboard">
+		<div class="container-fluid" id="controlboard">
+			<div class="row border mb-2">
+				<div class="col-sm mb-2">
+					<button id="setupbutton" type="button" class="btn btn-outline-dark btn-block p-4">SETUP Game</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="loadbutton" type="button" class="btn btn-outline-danger btn-block p-4">LOAD last status</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid setup">
+			<div class="row border mb-2">
+				<div class="col-sm mb-2">
+					<button id="quarterShowbutton" type="button" class="btn btn-secondary btn-block p-4">Hide Quarter</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="gameclockShowbutton" type="button" class="btn btn-secondary btn-block p-4">Hide Game Clock</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="playclockShowbutton" type="button" class="btn btn-secondary btn-block p-4">Hide Playclock</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="downShowbutton" type="button" class="btn btn-secondary btn-block p-4">Hide Downs</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="distanceShowbutton" type="button" class="btn btn-secondary btn-block p-4">Hide Distance<br><br></button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid setup">
+			<div class="row border mb-2">
+				<div class="col-sm mb-2"><label class="float-right"><br><b>Playclock Setup:</b><br><br></label></div>
+				<div class="col-sm mb-2">
+					<button id="reset12Clockbutton" type="button" class="btn btn-primary btn-block p-4">Set to 12:00</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="reset15Clockbutton" type="button" class="btn btn-primary btn-block p-4">Set to 15:00</button>
+				</div>
+				<div class="col mb-2">
+					<button id="reset30Clockbutton" type="button" class="btn btn-primary btn-block p-4">Set to 30:00</button>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="container-fluid setup">
+			<div class="row border mb-2">
+				<div class="col-1 mb-2">
+					<div id="teamlogo1box_3">
+						<button id="team1" type="button" class="btn btn-outline-danger col">Team 1:</button>
+						<img class="img-fluid" id="teamlogo1_3" src="fursty-razorbacks.png">
+					</div>
+				</div>
+				<div class="col-4 mb-2">
+					<button id="setupTeam1button" type="button" class="btn btn-dark btn-block p-4">Select Team 1</button>
+				</div>
+				<div class="col-6 mb-2" id="teamsetup1">
+				</div>
+			</div>
+			<div class="row border mb-2">
+				<div class="col-1 mb-2">
+					<div id="teamlogo2box_3">
+						<button id="team2" type="button" class="btn btn-outline-warning col">Team 2:</button>
+						<img class="img-fluid" id="teamlogo2_3" src="fursty-razorbacks.png">
+					</div>
+				</div>
+				<div class="col-4 mb-2">
+					<button id="setupTeam2button" type="button" class="btn btn-dark btn-block p-4">Select Team 2</button>
+				</div>
+				<div class="col-6 mb-2" id="teamsetup2">
+				</div>
+			</div>
+			<br>
+		</div>
+		<br>
+		<div class="container-fluid">
+			<div class="row border">
+				<div class="col-6 mb-2"></div>
+				<div class="col-sm mb-2">
+					<button id="countquarterbutton" type="button" class="btn btn-info btn-block p-4">Quarter</button>
+				</div>
+				<div class="col-sm mb-2">
+					<button id="flagbutton" type="button" class="btn btn-warning btn-block p-4">Flag</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container-fluid">
+			<div class="row border">
+				<div class="col-2 mb-2">
+					<button id="firstDownbutton" type="button" class="btn btn-primary btn-block p-4">1st & 10</button>
+				</div>
+				<div class="col-2 mb-2">
+					<button id="countDownsbutton" type="button" class="btn btn-info btn-block p-4">Down +</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsplus10button" type="button" class="btn btn-success btn-block p-4">+10y</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsminus10button" type="button" class="btn btn-warning btn-block p-4">-10y</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsplus5button" type="button" class="btn btn-success btn-block p-4">+5y</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsminus5button" type="button" class="btn btn-warning btn-block p-4">-5y</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsplus1button" type="button" class="btn btn-success btn-block p-4">+1y</button>
+				</div>
+				<div class="col mb-2">
+					<button id="yardsminus1button" type="button" class="btn btn-warning btn-block p-4">-1y</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col mb-2">
+					<button id="resetClockbutton" type="button" class="btn btn-dark btn-block p-4">Playclock Reset</button>
+				</div>
+				<div class="col mb-2">
+					<button id="startClockbutton" type="button" class="btn btn-success btn-block p-4">Start Clock</button>
+				</div>
+				<div class="col mb-2">
+					<button id="stopClockbutton" type="button" class="btn btn-danger btn-block p-4">Stop Clock</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col mb-2">
+					<button id="plusMinutebutton" type="button" class="btn btn-primary btn-block p-4">+1 Min</button>
+				</div>
+				<div class="col mb-2">
+					<button id="minusMinutebutton" type="button" class="btn btn-primary btn-block p-4">-1 Min</button>
+				</div>
+				<div class="col mb-2">
+					<button id="plus10Secondbutton" type="button" class="btn btn-secondary btn-block p-4">+10 sec</button>
+				</div>
+				<div class="col mb-2">
+					<button id="minus10Secondbutton" type="button" class="btn btn-secondary btn-block p-4">-10 sec</button>
+				</div>
+				<div class="col mb-2">
+					<button id="plus1Secondbutton" type="button" class="btn btn-info btn-block p-4">+1 sec</button>
+				</div>
+				<div class="col mb-2">
+					<button id="minus1Secondbutton" type="button" class="btn btn-info btn-block p-4">-1 sec</button>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="container-fluid">
+			<div class="row border">
+				<div class="col-2 mb-2">
+					<div id="teamlogo1box_2">
+						<button id="team1" type="button" class="btn btn-outline-danger col">Team 1:</button>
+						<br>
+						<img class="img-fluid" id="teamlogo1_2" src="fursty-razorbacks.png">
+					</div>
+				</div>
+				<div class="col-10 mb-2">
+					<div class="row">
+						<div class="col mb-2">
+							<button id="countTimeoutTeam1button" type="button" class="btn btn-dark btn-block p-4">Timeout Team 1</button>
+						</div>
+						<div class="col mb-2">
+							<button id="ballbesitzTeam1button" type="button" class="btn btn-danger btn-block p-4">Ball Team 1</button>
+						</div>
+						<div class="col mb-2">
+							<button id="touchdownTeam1button" type="button" class="btn btn-success btn-block p-4">Touchdown</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col mb-2">
+							<button id="twopointTeam1button" type="button" class="btn btn-success btn-block p-4">2point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="fieldgoalTeam1button" type="button" class="btn btn-success btn-block p-4">Fieldgoal</button>
+						</div>
+						<div class="col mb-2">
+							<button id="safetyTeam1button" type="button" class="btn btn-warning btn-block p-4">Safety</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col mb-2">
+							<button id="plusTeam1button" type="button" class="btn btn-secondary btn-block p-4">+1 Point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="minusTeam1button" type="button" class="btn btn-secondary btn-block p-4">-1 Point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="plusTimeoutTeam1button" type="button" class="btn btn-dark btn-block p-4">+1 Timeout</button>
+						</div>
+						<div class="col mb-2">
+							<button id="minusTimeoutTeam1button" type="button" class="btn btn-dark btn-block p-4">-1 Timeout</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="container-fluid">
+			<div class="row border">
+				<div class="col-2 mb-2">
+					<div id="teamlogo2box_2">
+						<button id="team2" type="button" class="btn btn-outline-warning col">Team 2:</button>
+						<br>
+						<img class="img-fluid" id="teamlogo2_2" src="fursty-razorbacks.png">
+					</div>
+				</div>
+				<div class="col-10 mb-2">
+					<div class="row">
+						<div class="col mb-2">
+							<button id="countTimeoutTeam2button" type="button" class="btn btn-dark btn-block p-4">Timeout Team 2</button>
+						</div>
+						<div class="col mb-2">
+							<button id="ballbesitzTeam2button" type="button" class="btn btn-secondary btn-block p-4">Ball Team 2</button>
+						</div>
+						<div class="col mb-2">
+							<button id="touchdownTeam2button" type="button" class="btn btn-success btn-block p-4">Touchdown</button>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col mb-2">
+							<button id="twopointTeam2button" type="button" class="btn btn-success btn-block p-4">2point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="fieldgoalTeam2button" type="button" class="btn btn-success btn-block p-4">Fieldgoal</button>
+						</div>
+						<div class="col mb-2">
+							<button id="safetyTeam2button" type="button" class="btn btn-warning btn-block p-4">Safety</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col mb-2">
+							<button id="plusTeam2button" type="button" class="btn btn-secondary btn-block p-4">+1 Point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="minusTeam2button" type="button" class="btn btn-secondary btn-block p-4">-1 Point</button>
+						</div>
+						<div class="col mb-2">
+							<button id="plusTimeoutTeam2button" type="button" class="btn btn-dark btn-block p-4">+1 Timeout</button>
+						</div>
+						<div class="col mb-2">
+							<button id="minusTimeoutTeam2button" type="button" class="btn btn-dark btn-block p-4">-1 Timeout</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container-fluid" id="kommentatoren">
+			<div class="row border">
+				<div class="col-4 mb-2">
+					<label for="kommentator1" class="form-label">Kommentator 1:</label>
+    				<input type="text" class="form-control" id="kommentator1" placeholder="Name">
+    			</div>
+    			<div class="col-4 mb-2">
+					<label for="kommentator2" class="form-label">Kommentator 2:</label>
+    				<input type="text" class="form-control" id="kommentator2" placeholder="Name">
+    			</div>
+    			<div class="col mb-2">
+					<button id="kommentatorenShowbutton" type="button" class="btn btn-primary btn-block p-4">Show</button>
+				</div>
+				<div class="col mb-2">
+					<button id="kommentatorenHidebutton" type="button" class="btn btn-secondary btn-block p-4">Hide</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container-fluid" id="bauchbindecontrol">
+			<div class="row">
+				<div class="col mb-2">
+					<label for="bauchbinde1" class="form-label">Name:</label>
+    				<input type="text" class="form-control" id="bauchbinde1" placeholder="Name">
+    			</div>
+    			<div class="col mb-2">
+					<label for="bauchbinde2" class="form-label">Info:</label>
+    				<input type="text" class="form-control" id="bauchbinde2" placeholder="Information">
+    			</div>
+		    </div>
+		    <div class="row">
+    			<div class="col mb-2">
+					<button id="bauchbindeTeam1button" type="button" class="btn btn-outline-danger btn-block p-4">Show Team1</button>
+				</div>
+				<div class="col mb-2">
+					<button id="bauchbindeTeam2button" type="button" class="btn btn-outline-warning btn-block p-4">Show Team2</button>
+				</div>
+    			<div class="col mb-2">
+					<button id="bauchbindeShowbutton" type="button" class="btn btn-primary btn-block p-4">Show</button>
+				</div>
+				<div class="col mb-2">
+					<button id="bauchbindeHidebutton" type="button" class="btn btn-secondary btn-block p-4">Hide</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container-fluid">
+			<div class="row border">
+				<div class="col mb-2">
+					<button id="tippsbutton" type="button" class="btn btn-outline-dark col btn-block p-4">Show/Hide Tipps</button>
+				</div>
+			</div>
+			<div class="row border" id="tipps">
+				<div class="col mb-2">
+					<br>
+					<p><b>Tipps zum Ablauf:</b> 5 Minuten vor Spiel - <b>Opener/Intro</b>, danach Bild vom <b>Stadion - Kameraschwenk</b>.</p>
+					<p>Bild auf <b>Kommentatoren</b>, <b>Play-by-Play</b> Kommentator begrüßt: "Wir sehen heute das Duell Erster gegen Zweiten ..."</p>
+					<p><b>Play-by-Play</b> Kommentator stellt Frage and <b>Experten</b> (z. B. zum Quarterback des Heimteams). <b>Experte</b> antwortet (evtl. Bild vom Quarterback).</p>
+					<p>Bis zu 3 Fragen vom <b>Play-by-Play</b> an den <b>Experten</b>. Die Zuschauer sollen Neugierig gemacht werden. Danach Bild von <b>Stadion-Totale</b>.</p>
+					<p>Dann Bild vom <b>Headcoach Heimteam</b> - Kommentatoren reden über ihn. Jetzt Bild <b>Headcoach Gastteam</b> - Kommentatoren reden über ihn.</p>
+					<p><b>Kickoff</b>. (Bei Verzögerung, viele Impressionen aus dem Stadion, je näher an der Akteuren desto besser).</p>
+					<p>Nach dem Kickoff kommt die <b>Offense</b> aufs Feld. Kamera begleitet den <b>Quarterback</b>. Das gleiche mit der anderen <b>Offense</b> nach Ballwechsel.</p>
+					<p>Die Gestaltung der <b>Halbzeitpause</b> ist frei, kann für <b>Werbung</b> genutzt werden. Die Übertragung endet offiziell mit dem Abspielen des <b>Closers</b>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script>
+		// socket connection
+		var socket = io.connect('/');
+		// get announcement
+		socket.on('announcement', function(data) {
+			console.log('Received announcement:', data.message);
+		});
+		// scoreboard data loaded
+		socket.on('sendgamedata', function(data) {
+			console.log('sendgamedata:', data);
+			// ----- live overlay update -----
+			// playclock
+			$('#time').text(data.clock);
+			// downclock
+			$('#playclock').text(":"+data.playclock);
+			// control setup
+			if(data.quartershow === 'yes'){
+				$("#quarter").show();
+			}else if(data.quartershow === 'no'){
+				$("#quarter").hide();
+			}
+			if(data.clockshow === 'yes'){
+				$("#time").show();
+			}else if(data.clockshow === 'no'){
+				$("#time").hide();
+			}
+			if(data.playclockshow === 'yes'){
+				$("#playclock").show();
+			}else if(data.playclockshow === 'no'){
+				$("#playclock").hide();
+			}
+			// count
+			$("#quarter").text(data.quarter);
+			if(data.downshow === 'yes' && data.distanceshow === 'yes'){
+				$("#downdistance").text(data.down+' & '+data.distance);
+			}else if(data.downshow === 'yes' && data.distanceshow === 'no'){
+				$("#downdistance").text(data.down+' down');
+			}else if(data.downshow === 'no'){
+				$("#downdistance").text('gfl.info');
+			}
+			// flag
+			if(data.flag === 'yes'){
+				$("#flagbox").show();
+				$("#flag").show();
+			}else if(data.flag === 'no'){
+				$("#flagbox").hide();
+				$("#flag").hide();
+			}
+			// score
+			if(data.score === 'no'){
+				$("#scorebox").hide();
+				$("#scorelogobox").hide();
+				$("#scorenamebox").hide();
+				$("#scorename").hide();
+			}else{
+				$("#scorename").text(data.score);
+				$("#scorelogo").attr("src", data.scorelogo);
+				$("#scorebox").show();
+				$("#scorelogobox").show();
+				$("#scorenamebox").show();
+				$("#scorename").show();
+			}
+			// teams
+			$("#teamname1").text(data.team1);
+			$("#teamlogo1").attr("src", data.logo1);
+			$("#teamlogo1_2").attr("src", data.logo1);
+			$("#teamlogo1_3").attr("src", data.logo1);
+			$("#teamfarbe1box").css( "background-color", data.color1);
+			$("#teamname2").text(data.team2);
+			$("#teamlogo2").attr("src", data.logo2);
+			$("#teamlogo2_2").attr("src", data.logo2);
+			$("#teamlogo2_3").attr("src", data.logo2);
+			$("#teamfarbe2box").css( "background-color", data.color2);
+			if(data.team1timeouts == 3){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").show();
+				$("#team1timeout3box").show();
+			}else if(data.team1timeouts == 2){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").show();
+				$("#team1timeout3box").hide();
+			}else if(data.team1timeouts == 1){
+				$("#team1timeout1box").show();
+				$("#team1timeout2box").hide();
+				$("#team1timeout3box").hide();
+			}else if(data.team1timeouts == 0){
+				$("#team1timeout1box").hide();
+				$("#team1timeout2box").hide();
+				$("#team1timeout3box").hide();
+			}
+			if(data.team2timeouts == 3){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").show();
+				$("#team2timeout3box").show();
+			}else if(data.team2timeouts == 2){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").show();
+				$("#team2timeout3box").hide();
+			}else if(data.team2timeouts == 1){
+				$("#team2timeout1box").show();
+				$("#team2timeout2box").hide();
+				$("#team2timeout3box").hide();
+			}else if(data.team2timeouts == 0){
+				$("#team2timeout1box").hide();
+				$("#team2timeout2box").hide();
+				$("#team2timeout3box").hide();
+			}
+			if(data.ballbesitz === 'team1'){
+				$("#ballbesitz1box").show();
+				$("#ballbesitz2box").hide();
+			}else if(data.ballbesitz === 'team2'){
+				$("#ballbesitz1box").hide();
+				$("#ballbesitz2box").show();
+			}
+			// score points
+			$("#spielstand1").text(data.points1);
+			$("#spielstand2").text(data.points2);
+			// bauchbinde
+			if(data.showbauchbinde === 'yes'){
+				$("#bauchbindetoptext").text(data.bauchbinde1);
+				$("#bauchbindebottomtext").text(data.bauchbinde2);
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				if(data.bauchbindelogo === ''){
+					$("#bauchbindelogobox").hide();
+				}else{
+					$("#bauchbindelogobox").show();
+				}
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				$("#bauchbinde").show();
+			}else if(data.showbauchbinde === 'no'){
+				$("#bauchbindetoptext").text(data.bauchbinde1);
+				$("#bauchbindebottomtext").text(data.bauchbinde2);
+				$("#bauchbindelogo").attr("src", data.bauchbindelogo);
+				$("#bauchbinde").hide();
+			}
+			// kommentatoren
+			if(data.showkommentator === 'yes'){
+				$("#kommentator1text").text(data.kommentator1);
+				$("#kommentator2text").text(data.kommentator2);
+				$("#kommentator1logo").attr("src", data.kommentator1logo);
+				$("#kommentator2logo").attr("src", data.kommentator2logo);
+				if(data.kommentator1logo === ''){
+					$("#kommentator1logobox").hide();
+				}else{
+					$("#kommentator1logobox").show();
+				}
+				if(data.kommentator2logo === ''){
+					$("#kommentator2logobox").hide();
+				}else{
+					$("#kommentator2logobox").show();
+				}
+			}else if(data.showkommentator === 'no'){
+				$("#kommentator1text").text(data.kommentator1);
+				$("#kommentator2text").text(data.kommentator2);
+				$("#kommentator1logo").attr("src", data.kommentator1logo);
+				$("#kommentator2logo").attr("src", data.kommentator2logo);
+			}
+			// ----- live overlay finished -----
+
+			// ----- control button update -----
+			// kommentatoren
+			$("#kommentator1").val(data.kommentator1);
+			$("#kommentator2").val(data.kommentator2);
+			// bauchbinde teams
+			bauchbindeTeam1button
+			$("#bauchbindeTeam1button").text(data.team1);
+			$("#bauchbindeTeam2button").text(data.team2);
+			// setup teams
+			var team1select = '<select id=\"selectTeam1\" class=\"btn btn-danger btn-block p-4\">';
+			var team2select = '<select id=\"selectTeam2\" class=\"btn btn-warning btn-block p-4\">';
+			// loop teams
+			for (var i = 0; i < data.teams.length; i++){
+				// get array object
+				console.log('team:', data.teams[i]);
+				var obj = data.teams[i];
+
+				team1select = team1select+"<option>"+obj["team_name"]+"</option>";
+				team2select = team2select+"<option>"+obj["team_name"]+"</option>";
+			}
+			team1select = team1select+"</select>";
+			team2select = team2select+"</select>";
+			$("#teamsetup1").html(team1select); 
+			$("#teamsetup2").html(team2select); 
+			// count
+			$("#countquarterbutton").text('Quarter: '+data.quarter);
+			$("#countquarterlink").text('Quarter: '+data.quarter);
+			$("#countDownsbutton").text('Down: '+data.down);
+			$("#countDownslink").text('Down: '+data.down);
+			// team1
+			$("#countTimeoutTeam1button").text('Timeout '+data.team1+': '+data.team1timeouts);
+			$("#countTimeoutTeam1link").text('Timeout '+data.team1+': '+data.team1timeouts);
+			$("#ballbesitzTeam1button").html('Ball '+data.team1);
+			$("#ballbesitzTeam1link").text('Ball '+data.team1);
+			// team2
+			$("#countTimeoutTeam2button").text('Timeout '+data.team2+': '+data.team2timeouts);
+			$("#countTimeoutTeam2link").text('Timeout '+data.team2+': '+data.team2timeouts);
+			$("#ballbesitzTeam2button").html('Ball '+data.team2);
+			$("#ballbesitzTeam2link").text('Ball '+data.team2);
+			if(data.ballbesitz === 'team1'){
+				$("#ballbesitzTeam1button").removeClass('btn-secondary');
+				$("#ballbesitzTeam1button").addClass('btn-danger');
+				$("#ballbesitzTeam2button").removeClass('btn-danger');
+				$("#ballbesitzTeam2button").addClass('btn-secondary');
+			}else if(data.ballbesitz === 'team2'){
+				$("#ballbesitzTeam1button").removeClass('btn-danger');
+				$("#ballbesitzTeam1button").addClass('btn-secondary');
+				$("#ballbesitzTeam2button").removeClass('btn-secondary');
+				$("#ballbesitzTeam2button").addClass('btn-danger');
+			}
+			// control setup
+			if(data.quartershow === 'yes'){
+				$("#quarterShowbutton").html('Hide Quarter');
+				$("#quarterShowbutton").removeClass('btn-primary');
+				$("#quarterShowbutton").addClass('btn-secondary');
+			}else if(data.quartershow === 'no'){
+				$("#quarterShowbutton").html('Show Quarter');
+				$("#quarterShowbutton").addClass('btn-primary');
+				$("#quarterShowbutton").removeClass('btn-secondary');
+			}
+			if(data.clockshow === 'yes'){
+				$("#gameclockShowbutton").html('Hide Game Clock');
+				$("#gameclockShowbutton").removeClass('btn-primary');
+				$("#gameclockShowbutton").addClass('btn-secondary');
+			}else if(data.clockshow === 'no'){
+				$("#gameclockShowbutton").html('Show Game Clock');
+				$("#gameclockShowbutton").addClass('btn-primary');
+				$("#gameclockShowbutton").removeClass('btn-secondary');
+			}
+			if(data.playclockshow === 'yes'){
+				$("#playclockShowbutton").html('Hide Playclock');
+				$("#playclockShowbutton").removeClass('btn-primary');
+				$("#playclockShowbutton").addClass('btn-secondary');
+			}else if(data.playclockshow === 'no'){
+				$("#playclockShowbutton").html('Show Playclock');
+				$("#playclockShowbutton").addClass('btn-primary');
+				$("#playclockShowbutton").removeClass('btn-secondary');
+			}
+			// playclock time
+			if(data.clocksetup === 720){
+				$("#reset12Clockbutton").addClass('btn-primary');
+				$("#reset12Clockbutton").removeClass('btn-secondary');
+				$("#reset15Clockbutton").addClass('btn-secondary');
+				$("#reset15Clockbutton").removeClass('btn-primary');
+				$("#reset30Clockbutton").addClass('btn-secondary');
+				$("#reset30Clockbutton").removeClass('btn-primary');
+			}else if(data.clocksetup === 900){
+				$("#reset12Clockbutton").addClass('btn-secondary');
+				$("#reset12Clockbutton").removeClass('btn-primary');
+				$("#reset15Clockbutton").addClass('btn-primary');
+				$("#reset15Clockbutton").removeClass('btn-secondary');
+				$("#reset30Clockbutton").addClass('btn-secondary');
+				$("#reset30Clockbutton").removeClass('btn-primary');
+			}else if(data.clocksetup === 1800){
+				$("#reset12Clockbutton").addClass('btn-secondary');
+				$("#reset12Clockbutton").removeClass('btn-primary');
+				$("#reset15Clockbutton").addClass('btn-secondary');
+				$("#reset15Clockbutton").removeClass('btn-primary');
+				$("#reset30Clockbutton").addClass('btn-primary');
+				$("#reset30Clockbutton").removeClass('btn-secondary');
+			}
+			// count
+			if(data.downshow === 'yes' && data.distanceshow === 'yes'){
+				$("#downShowbutton").html('Hide Downs');
+				$("#downShowbutton").removeClass('btn-primary');
+				$("#downShowbutton").addClass('btn-secondary');
+				$("#distanceShowbutton").html('Hide Distance');
+				$("#distanceShowbutton").removeClass('btn-primary');
+				$("#distanceShowbutton").addClass('btn-secondary');
+			}else if(data.downshow === 'yes' && data.distanceshow === 'no'){
+				$("#downShowbutton").html('Hide Downs');
+				$("#downShowbutton").removeClass('btn-primary');
+				$("#downShowbutton").addClass('btn-secondary');
+				$("#distanceShowbutton").html('Show Distance');
+				$("#distanceShowbutton").addClass('btn-primary');
+				$("#distanceShowbutton").removeClass('btn-secondary');
+			}else if(data.downshow === 'no'){
+				$("#downShowbutton").html('Show Downs');
+				$("#downShowbutton").addClass('btn-primary');
+				$("#downShowbutton").removeClass('btn-secondary');
+				$("#distanceShowbutton").html('Hide Distance');
+				$("#distanceShowbutton").removeClass('btn-primary');
+				$("#distanceShowbutton").addClass('btn-secondary');
+			}
+		});
+
+		// document loaded
+		$(document).ready(function(){
+			// send message
+			socket.emit('requestgamedata', { message: 'Request game data' });
+			// change the url to a clean one
+			var cleanURL = "control";//the new URL
+			window.history.pushState({}, document.title, "/" + cleanURL );
+			// ----- button functions -----
+			// hide setup
+			$(".setup").hide();
+			// setup toggle button
+			$("#setupbutton").click(function(){
+				$(".setup").toggle();
+			});
+			// hide tipps
+			$("#tipps").hide();
+			// tipps toggle button
+			$("#tippsbutton").click(function(){
+				$("#tipps").toggle();
+			});
+			// load last game status
+			$( "#loadbutton" ).click(function(){
+				console.log('loadbutton clicked:');
+				var check = confirm('LOAD last game status and OVERWRITE actual scoreboard?');
+				if (check == true) {
+					socket.emit('loadGamedata', { message: 'load game data' });
+					location.reload();
+				}
+			});
+			// counts
+			$( "#countquarterbutton" ).on( "click", function(event) {
+				console.log('countquarterbutton clicked:', event);
+				socket.emit('countquarter', { message: 'count quarter' });
+			});
+			$( "#countDownsbutton" ).on( "click", function(event) {
+				console.log('countDownsbutton clicked:', event);
+				socket.emit('countDowns', { message: 'count Downs.' });
+			});
+			$( "#flagbutton" ).on( "click", function(event) {
+				console.log('flagbutton clicked:', event);
+				socket.emit('flag', { message: 'flag.' });
+			});
+			// yards
+			$( "#firstDownbutton" ).on( "click", function(event) {
+				console.log('firstDownbutton clicked:', event);
+				socket.emit('firstDown', { message: 'first Down' });
+			});
+			$( "#yardsplus10button" ).on( "click", function(event) {
+				console.log('yardsplus10button clicked:', event);
+				socket.emit('yardsplus10', { message: 'yards plus 10' });
+			});
+			$( "#yardsminus10button" ).on( "click", function(event) {
+				console.log('yardsminus10button clicked:', event);
+				socket.emit('yardsminus10', { message: 'yards minus 10' });
+			});
+			$( "#yardsplus5button" ).on( "click", function(event) {
+				console.log('yardsplus5button clicked:', event);
+				socket.emit('yardsplus5', { message: 'yards plus 5' });
+			});
+			$( "#yardsminus5button" ).on( "click", function(event) {
+				console.log('yardsminus5button clicked:', event);
+				socket.emit('yardsminus5', { message: 'yards minus 5' });
+			});
+			$( "#yardsplus1button" ).on( "click", function(event) {
+				console.log('yardsplus10button clicked:', event);
+				socket.emit('yardsplus1', { message: 'yards plus 1' });
+			});
+			$( "#yardsminus1button" ).on( "click", function(event) {
+				console.log('yardsminus1button clicked:', event);
+				socket.emit('yardsminus1', { message: 'yards minus 1' });
+			});
+
+			// control setup
+			$( "#quarterShowbutton" ).on( "click", function(event) {
+				console.log('quarterShowbutton clicked:', event);
+				socket.emit('quarterShow', { message: 'quarter Show' });
+			});
+			$( "#gameclockShowbutton" ).on( "click", function(event) {
+				console.log('gameclockShowbutton clicked:', event);
+				socket.emit('gameclockShow', { message: 'gameclock Show' });
+			});
+			$( "#playclockShowbutton" ).on( "click", function(event) {
+				console.log('playclockShowbutton clicked:', event);
+				socket.emit('playclockShow', { message: 'playclock Show' });
+			});
+			$( "#downShowbutton" ).on( "click", function(event) {
+				console.log('downShowbutton clicked:', event);
+				socket.emit('downShow', { message: 'down Show' });
+			});
+			$( "#distanceShowbutton" ).on( "click", function(event) {
+				console.log('distanceShowbutton clicked:', event);
+				socket.emit('distanceShow', { message: 'distance Show' });
+			});
+
+			// playclock setup
+			$( "#reset12Clockbutton" ).on( "click", function(event) {
+				console.log('reset12Clockbutton clicked:', event);
+				socket.emit('reset12Clock', { message: 'reset 12 Playclock' });
+			});
+			$( "#reset15Clockbutton" ).on( "click", function(event) {
+				console.log('reset15Clockbutton clicked:', event);
+				socket.emit('reset15Clock', { message: 'reset 15 Playclock' });
+			});
+			$( "#reset30Clockbutton" ).on( "click", function(event) {
+				console.log('reset30Clockbutton clicked:', event);
+				socket.emit('reset30Clock', { message: 'reset 30 Playclock' });
+			});
+
+			// team setup
+			$( "#setupTeam1button" ).on( "click", function(event) {
+				console.log('setupTeam1button clicked:', event);
+				var selectedteam1 = $("#selectTeam1").children("option:selected").text();
+				socket.emit('setupTeam1', selectedteam1);
+			});
+			$( "#setupTeam2button" ).on( "click", function(event) {
+				console.log('setupTeam2button clicked:', event);
+				var selectedteam2 = $("#selectTeam2").children("option:selected").text();
+				socket.emit('setupTeam2', selectedteam2);
+			});
+
+			// playclock functions
+			$( "#resetClockbutton" ).on( "click", function(event) {
+				console.log('resetClockbutton clicked:', event);
+				socket.emit('resetClock', { message: 'reset Playclock' });
+			});
+			$( "#plusMinutebutton" ).on( "click", function(event) {
+				console.log('plusMinutebutton clicked:', event);
+				socket.emit('plusMinute', { message: 'plus Minute Playclock' });
+			});
+			$( "#minusMinutebutton" ).on( "click", function(event) {
+				console.log('minusMinutebutton clicked:', event);
+				socket.emit('minusMinute', { message: 'minus Minute Playclock' });
+			});
+			$( "#plus10Secondbutton" ).on( "click", function(event) {
+				console.log('plus10Secondbutton clicked:', event);
+				socket.emit('plus10Second', { message: 'plus 10 Second Playclock' });
+			});
+			$( "#minus10Secondbutton" ).on( "click", function(event) {
+				console.log('minus10Secondbutton clicked:', event);
+				socket.emit('minus10Second', { message: 'minus 10 Second Playclock' });
+			});
+			$( "#plus1Secondbutton" ).on( "click", function(event) {
+				console.log('plus1Secondbutton clicked:', event);
+				socket.emit('plus1Second', { message: 'plus 1 Second Playclock' });
+			});
+			$( "#minus1Secondbutton" ).on( "click", function(event) {
+				console.log('minus1Secondbutton clicked:', event);
+				socket.emit('minus1Second', { message: 'minus 1 Second Playclock' });
+			});
+			$( "#startClockbutton" ).on( "click", function(event) {
+				console.log('startClockbutton clicked:', event);
+				socket.emit('startClock', { message: 'start Playclock' });
+			});
+			$( "#stopClockbutton" ).on( "click", function(event) {
+				console.log('stopClockbutton clicked:', event);
+				socket.emit('stopClock', { message: 'stop Playclock' });
+			});
+
+			// team1
+			$( "#teamlogo1_2" ).on( "click", function(event) {
+				console.log('teamlogo1_2 clicked:', event);
+				window.location = "team1";
+			});
+			$( "#countTimeoutTeam1button" ).on( "click", function(event) {
+				console.log('countTimeoutTeam1button clicked:', event);
+				socket.emit('countTimeoutTeam1', { message: 'count Timeout Team 1.' });
+			});
+			$( "#ballbesitzTeam1button" ).on( "click", function(event) {
+				console.log('ballbesitzTeam1 clicked:', event);
+				socket.emit('ballbesitzTeam1', { message: 'ballbesitz Team 1.' });
+			});
+
+			$( "#touchdownTeam1button" ).on( "click", function(event) {
+				console.log('touchdownTeam1 clicked:', event);
+				socket.emit('touchdownTeam1', { message: 'touchdown Team 1.' });
+			});
+			$( "#extrapointTeam1button" ).on( "click", function(event) {
+				console.log('extrapointTeam1 clicked:', event);
+				socket.emit('extrapointTeam1', { message: 'extrapoint Team 1.' });
+			});
+			$( "#twopointTeam1button" ).on( "click", function(event) {
+				console.log('twopointTeam1 clicked:', event);
+				socket.emit('twopointTeam1', { message: 'twopoint Team 1.' });
+			});
+			$( "#fieldgoalTeam1button" ).on( "click", function(event) {
+				console.log('fieldgoalTeam1 clicked:', event);
+				socket.emit('fieldgoalTeam1', { message: 'fieldgoal Team 1.' });
+			});
+			$( "#safetyTeam1button" ).on( "click", function(event) {
+				console.log('safetyTeam1 clicked:', event);
+				socket.emit('safetyTeam1', { message: 'safety Team 1.' });
+			});
+			$( "#plusTeam1button" ).on( "click", function(event) {
+				console.log('plusTeam1 clicked:', event);
+				socket.emit('plusTeam1', { message: 'plus Team 1.' });
+			});
+			$( "#minusTeam1button" ).on( "click", function(event) {
+				console.log('minusTeam1 clicked:', event);
+				socket.emit('minusTeam1', { message: 'minus Team 1.' });
+			});
+			$( "#plusTimeoutTeam1button" ).on( "click", function(event) {
+				console.log('plusTimeoutTeam1 clicked:', event);
+				socket.emit('plusTimeoutTeam1', { message: 'plus Timeout Team 1.' });
+			});
+			$( "#minusTimeoutTeam1button" ).on( "click", function(event) {
+				console.log('minusTimeoutTeam1 clicked:', event);
+				socket.emit('minusTimeoutTeam1', { message: 'minus Timeout Team 1.' });
+			});
+
+			// team2
+			$( "#teamlogo2_2" ).on( "click", function(event) {
+				console.log('teamlogo2_2 clicked:', event);
+				window.location = "team2";
+			});
+			$( "#countTimeoutTeam2button" ).on( "click", function(event) {
+				console.log('countTimeoutTeam2button clicked:', event);
+				socket.emit('countTimeoutTeam2', { message: 'count Timeout Team 2.' });
+			});
+			$( "#ballbesitzTeam2button" ).on( "click", function(event) {
+				console.log('ballbesitzTeam2 clicked:', event);
+				socket.emit('ballbesitzTeam2', { message: 'ballbesitz Team 2.' });
+			});
+
+			$( "#touchdownTeam2button" ).on( "click", function(event) {
+				console.log('touchdownTeam2 clicked:', event);
+				socket.emit('touchdownTeam2', { message: 'touchdown Team 2.' });
+			});
+			$( "#extrapointTeam2button" ).on( "click", function(event) {
+				console.log('extrapointTeam2 clicked:', event);
+				socket.emit('extrapointTeam2', { message: 'extrapoint Team 2.' });
+			});
+			$( "#twopointTeam2button" ).on( "click", function(event) {
+				console.log('twopointTeam2 clicked:', event);
+				socket.emit('twopointTeam2', { message: 'twopoint Team 2.' });
+			});
+			$( "#fieldgoalTeam2button" ).on( "click", function(event) {
+				console.log('fieldgoalTeam2 clicked:', event);
+				socket.emit('fieldgoalTeam2', { message: 'fieldgoal Team 2.' });
+			});
+			$( "#safetyTeam2button" ).on( "click", function(event) {
+				console.log('safetyTeam2 clicked:', event);
+				socket.emit('safetyTeam2', { message: 'safety Team 2.' });
+			});
+			$( "#plusTeam2button" ).on( "click", function(event) {
+				console.log('plusTeam2 clicked:', event);
+				socket.emit('plusTeam2', { message: 'plus Team 2.' });
+			});
+			$( "#minusTeam2button" ).on( "click", function(event) {
+				console.log('minusTeam2 clicked:', event);
+				socket.emit('minusTeam2', { message: 'minus Team 2.' });
+			});
+			$( "#plusTimeoutTeam2button" ).on( "click", function(event) {
+				console.log('plusTimeoutTeam2 clicked:', event);
+				socket.emit('plusTimeoutTeam2', { message: 'plus Timeout Team 2.' });
+			});
+			$( "#minusTimeoutTeam2button" ).on( "click", function(event) {
+				console.log('minusTimeoutTeam2 clicked:', event);
+				socket.emit('minusTimeoutTeam2', { message: 'minus Timeout Team 2.' });
+			});
+
+			// bauchbinde buttons
+			$( "#kommentatorenShowbutton" ).on( "click", function(event) {
+				console.log('kommentatorenShowbutton clicked:', event);
+				var kommentator1 = $("#kommentator1").val();
+				var kommentator2 = $("#kommentator2").val();
+				socket.emit('kommentatorenShow', { kommentator1: kommentator1, kommentator2: kommentator2 });
+			});
+			$( "#kommentatorenHidebutton" ).on( "click", function(event) {
+				console.log('kommentatorenHidebutton clicked:', event);
+				socket.emit('kommentatorenHide', { kommentator1: kommentator1, kommentator2: kommentator2 });
+			});
+			$( "#bauchbindeTeam1button" ).on( "click", function(event) {
+				console.log('bauchbindeTeam1button clicked:', event);
+				var bauchbinde1 = $("#bauchbinde1").val();
+				var bauchbinde2 = $("#bauchbinde2").val();
+				socket.emit('bauchbindeTeam1', { bauchbinde1: bauchbinde1, bauchbinde2: bauchbinde2 });
+			});
+			$( "#bauchbindeTeam2button" ).on( "click", function(event) {
+				console.log('bauchbindeTeam2button clicked:', event);
+				var bauchbinde1 = $("#bauchbinde1").val();
+				var bauchbinde2 = $("#bauchbinde2").val();
+				socket.emit('bauchbindeTeam2', { bauchbinde1: bauchbinde1, bauchbinde2: bauchbinde2 });
+			});
+			$( "#bauchbindeShowbutton" ).on( "click", function(event) {
+				console.log('bauchbindeShowbutton clicked:', event);
+				var bauchbinde1 = $("#bauchbinde1").val();
+				var bauchbinde2 = $("#bauchbinde2").val();
+				socket.emit('bauchbindeShow', { bauchbinde1: bauchbinde1, bauchbinde2: bauchbinde2 });
+			});
+			$( "#bauchbindeHidebutton" ).on( "click", function(event) {
+				console.log('bauchbindeHidebutton clicked:', event);
+				var bauchbinde1 = $("#bauchbinde1").val();
+				var bauchbinde2 = $("#bauchbinde2").val();
+				socket.emit('bauchbindeHide', { bauchbinde1: bauchbinde1, bauchbinde2: bauchbinde2 });
+			});
+
+			// ----- button functions end -----
+		});
+	</script>
+</body>
+ 
+</html>

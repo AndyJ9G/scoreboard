@@ -1,0 +1,14 @@
+{
+  "team_name": "Munich Cowboys",
+  "name": "Cowboys",
+  "color": "#fab400",
+  "logo": "munich-cowboys.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

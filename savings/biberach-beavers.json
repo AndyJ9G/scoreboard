@@ -1,0 +1,14 @@
+{
+  "team_name": "Biberach Beavers",
+  "name": "Beavers",
+  "color": "#222c52",
+  "logo": "biberach-beavers.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "team_name": "Frankfurt Pirates",
+  "name": "Pirates",
+  "color": "#eec11e",
+  "logo": "frankfurt-pirates.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL-TV Scoreboard Team Names and Logos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+	</style> 
+</head>
+ 
+<body>
+
+	<div class="container-fluid" id="headline">
+		<div class="row">
+			<div class="col-sm mb-2">
+				<a href="index" class="btn btn-dark btn-block p-4" role="button">Home</a>
+			</div>
+			<div class="col-sm mb-2">
+				<a href="control" class="btn btn-primary btn-block p-4" role="button">Control</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="teams">
+	</div>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script>
+		// socket connection
+		var socket = io.connect('/');
+		// get announcement
+		socket.on('announcement', function(data) {
+			console.log('Received announcement:', data.message);
+		});
+		// teams data loaded
+		socket.on('sendteamlist', function(data) {
+			console.log('sendteamlist:', data);
+			// setup teams list
+			// create html
+			var teams = '<form action="" id="updateID">';
+			// create update button
+			teams += '<div class="row"><div class="col-sm mb-2"><button type="button" class="btn btn-success btn-block updatebutton p-4" value="updatebutton">Update/upload teams list</button></div></div>';
+			var number = 0;
+			// loop data
+			for(let teamlist of data.teamlist){
+				// add row
+				teams += '<div class="row border">';
+				// increase number
+				number = number + 1;
+				// add team_name field
+				teams += '<div class="col-1 mb-2"><label for="team_name'+number+'" class="form-label float-right">Teamname:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="team_name'+number+'" value="'+teamlist["team_name"]+'"></div>';
+				// add overlay name field
+				teams += '<div class="col-1 mb-2"><label for="name'+number+'" class="form-label float-right">Overlay Name:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="name'+number+'" value="'+teamlist["name"]+'"></div>';
+				// add overlay color field
+				teams += '<div class="col-1 mb-2"><label for="color'+number+'" class="form-label float-right">Overlay Color:</label></div><div class="col-1 mb-2"><input type="text" class="form-control font-weight-bold" id="color'+number+'" value="'+teamlist["color"]+'"></div>';
+				// add logo field
+				teams += '<div class="col-1 mb-2"><label for="logo'+number+'" class="form-label float-right">Logo:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="logo'+number+'" value="'+teamlist["logo"]+'"></div>';
+				// add logo
+				teams += '<div class="col-1 mb-2"><img class="img-fluid" id="teamlogo'+number+'" src="'+teamlist["logo"]+'"></div>';
+				// finish row
+				teams += '</div>';
+			}
+			// add empty rows for additional teams up to 100
+			while(number<100){
+				// add row
+				teams += '<div class="row border">';
+				// increase number
+				number = number + 1;
+				// add team_name field
+				teams += '<div class="col-1 mb-2"><label for="team_name'+number+'" class="form-label float-right">Teamname:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="team_name'+number+'"></div>';
+				// add overlay name field
+				teams += '<div class="col-1 mb-2"><label for="name'+number+'" class="form-label float-right">Overlay Name:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="name'+number+'"></div>';
+				// add overlay color field
+				teams += '<div class="col-1 mb-2"><label for="color'+number+'" class="form-label float-right">Overlay Color:</label></div><div class="col-1 mb-2"><input type="text" class="form-control font-weight-bold" id="color'+number+'"></div>';
+				// add logo field
+				teams += '<div class="col-1 mb-2"><label for="logo'+number+'" class="form-label float-right">Logo:</label></div><div class="col-2 mb-2"><input type="text" class="form-control font-weight-bold" id="logo'+number+'"></div>';
+				// finish row
+				teams += '</div>';
+			}
+			// finalize form
+			teams += '</form>';
+			// add html to container
+			$('#teams').html(teams);
+		});
+
+		// document loaded
+		$(document).ready(function(){
+			// send message
+			socket.emit('requestgamedata', { message: 'Request game data' });
+			// send message
+			socket.emit('requestteamlist', { message: 'Request team list' });
+			// ----- button functions -----
+
+			// add click function to update button
+			$(document).on("click",".updatebutton", function() {
+				console.log('Updatebutton clicked:', $(this).val());
+				// get all players, start json
+				var teamlist = '[';
+				var skip = false;
+				// Select all the input elements with the type of text
+		        $("#updateID input[type=text]").each(function () {
+		        	// check id = name
+		        	if(this.id.startsWith("team_name")){
+		        		// check empty string
+		        		if(!this.value){
+		        			// skip
+		        			skip = true;
+		        		}else{
+		        			skip = false;
+		        			// add json field start
+			        		teamlist += '{';
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamlist += '"team_name": "'+value+'"';
+			        		teamlist += ',';
+		        		}
+		        	}else if(this.id.startsWith("name")){
+		        		// check empty string
+		        		if(skip){
+		        			// skip
+		        		}else if(!this.value){
+		        			// empty name
+			        		teamlist += '"name": " "';
+			        		teamlist += ',';
+			        	}else{
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamlist += '"name": "'+value+'"';
+			        		teamlist += ',';
+			        	}
+		        	}else if(this.id.startsWith("color")){
+		        		// check empty string
+		        		if(skip){
+		        			// skip
+		        		}else if(!this.value){
+		        			// empty color
+			        		teamlist += '"color": "#000000"';
+			        		teamlist += ',';
+			        	}else{
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamlist += '"color": "'+value+'"';
+			        		teamlist += ',';
+			        	}
+		        	}else if(this.id.startsWith("logo")){
+		        		// check empty string
+		        		if(skip){
+		        			// skip
+		        		}else if(!this.value){
+		        			// empty number
+			        		teamlist += '"logo": "no-logo.png"';
+			        		teamlist += '},';
+			        	}else{
+			        		// replace quatation marks ("' -> *)
+			        		var value = this.value.replace(/['"]+/g, '*')
+			        		teamlist += '"logo": "'+value+'"';
+			        		teamlist += '},';
+			        	}
+		        	}
+		        });
+		        // cut last character
+		        var teamslist = teamlist.slice(0, -1);
+		        // end json
+		        teamslist += ']';
+		        socket.emit('updateAllTeamsList', teamslist);
+		        location.reload();
+			});
+			// ----- button functions end -----
+		});
+	</script>
+</body>
+ 
+</html>

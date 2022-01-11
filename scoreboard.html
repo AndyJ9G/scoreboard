@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>GFL-TV Scoreboard Overlay</title>
+
+    <link rel="stylesheet" href="scoreboardbigrelative.css">
+</head>
+ 
+<body>
+	<div id="scoreboard">
+		<div id="hintergrund"></div>
+
+		<div id="teamfarbe1box" style="background-color: red;"></div>
+		<div id="teamname1box"></div>
+		<div id="teamname1">Hometeam</div>
+
+		<div id="teamlogo1box">
+			<img id="teamlogo1" src="fursty-razorbacks.png">
+		</div>
+
+		<div id="team1timeout1box"></div>
+		<div id="team1timeout2box"></div>
+		<div id="team1timeout3box"></div>
+
+		<div id="spielstand1box"></div>
+		<div id="spielstand1">00</div>
+		<div id="ballbesitz1box"></div>
+
+		<div id="teamfarbe2box" style="background-color: blue;"></div>
+		<div id="teamname2box"></div>
+		<div id="teamname2">Guestteam</div>
+
+		<div id="teamlogo2box">
+			<img id="teamlogo2" src="fursty-razorbacks.png">
+		</div>
+
+		<div id="team2timeout1box"></div>
+		<div id="team2timeout2box"></div>
+		<div id="team2timeout3box"></div>
+
+		<div id="spielstand2box"></div>
+		<div id="spielstand2">00</div>
+		<div id="ballbesitz2box"></div>
+
+		<div id="quarterbox"></div>
+		<div id="quarter">PRE</div>
+		<div id="timebox"></div>
+		<div id="time">12:00</div>
+		<div id="playclockbox"></div>
+		<div id="playclock">:25</div>
+		<div id="downdistancebox"></div>
+		<div id="downdistance">1st & 10</div>
+
+		<div id="scorebox" hidden></div>
+		<div id="scorelogobox" hidden>
+			<img id="scorelogo" src="fursty-razorbacks.png">
+		</div>
+		<div id="scorenamebox" hidden></div>
+		<div id="scorename" hidden>Score</div>
+
+		<div id="flagbox" hidden></div>
+		<div id="flag" hidden>FLAG</div>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="scoreboard.js"></script>
+
+</body>
+ 
+</html>

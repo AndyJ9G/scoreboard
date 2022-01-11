@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Coach Name",
+    "position": "Headcoach",
+    "number": "HC",
+    "image": "no-logo.png"
+  },
+  {
+    "name": "Player 1",
+    "position": "Quarterback",
+    "number": "1",
+    "image": "no-logo.png"
+  },
+  {
+    "name": "Player 2",
+    "position": "Position",
+    "number": "2",
+    "image": "no-logo.png"
+  },
+  {
+    "name": "Player 3",
+    "position": "Position",
+    "number": "3",
+    "image": "no-logo.png"
+  },
+  {
+    "name": "Player 4",
+    "position": "Position",
+    "number": "4",
+    "image": "no-logo.png"
+  },
+  {
+    "name": "Player 5",
+    "position": "Position",
+    "number": "5",
+    "image": "no-logo.png"
+  }
+]

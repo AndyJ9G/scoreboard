@@ -1,0 +1,14 @@
+{
+  "team_name": "Kirchdorf Wildcats",
+  "name": "Wildcats",
+  "color": "#818181",
+  "logo": "kirchdorf-wildcats.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}

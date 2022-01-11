@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Coach",
+    "position": "Headcoach",
+    "number": "HC",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 1",
+    "position": "Quarterback",
+    "number": "1",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 2",
+    "position": "Position",
+    "number": "2",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 3",
+    "position": "Position",
+    "number": "3",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 4",
+    "position": "Position",
+    "number": "4",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 5",
+    "position": "Position",
+    "number": "5",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 6",
+    "position": "Position",
+    "number": "6",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 7",
+    "position": "Position",
+    "number": "7",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 8",
+    "position": "Position",
+    "number": "8",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 9",
+    "position": "Position",
+    "number": "9",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 10",
+    "position": "Position",
+    "number": "10",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 11",
+    "position": "Position",
+    "number": "11",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 12",
+    "position": "Position",
+    "number": "12",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 13",
+    "position": "Position",
+    "number": "13",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 14",
+    "position": "Position",
+    "number": "14",
+    "image": "cologne-crocodiles.png"
+  },
+  {
+    "name": "Player 15",
+    "position": "Pos",
+    "number": "15",
+    "image": "cologne-crocodiles.png"
+  }
+]

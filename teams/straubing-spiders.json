@@ -1,0 +1,14 @@
+{
+  "team_name": "Straubing Spiders",
+  "name": "Spiders",
+  "color": "#00204c",
+  "logo": "straubing-spiders.png",
+  "players":[
+    {
+      "name": "Coach",
+      "position": "Headcoach",
+      "number": "HC",
+      "image": ""
+    }
+  ]
+}
