@@ -27,7 +27,7 @@ After node js is installed, download or clone this GIT repository.
 
 Then run **npm install** on the command line within the parent directory and all node_modules will be installed.
 
-Then run **npm build** on the command line to create the react js statis files.
+Then run **npm run build** on the command line to create the react js statis files.
 
 
 -- START APPLICATION --
