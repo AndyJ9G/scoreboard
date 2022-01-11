@@ -18,19 +18,28 @@ The stats user interface (frontend) is create with **react js** and the communic
 
 All configurations, team setup, games and stats are stored as **JSON files**.
 
+
 -- INSTALLATION --
+
 The app need **node js** installed.
 
 After node js is installed, download or clone this GIT repository.
+
 Then run **npm install** on the command line within the parent directory and all node_modules will be installed.
+
 Then run **npm build** on the command line to create the react js statis files.
 
+
 -- START APPLICATION --
+
 Run **npm start** on the command line within the parent directory (or use the **.BAT** file on windows platforms).
 
+
 -- USER INTERFACE --
+
 The main controls can then be found under **port 4000** under **"http://localhost:4000"**.
 Here you will also find the links to the overlays.
+
 
 -- FUNCTIONS --
 The main communication is running via websockets.
