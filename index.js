@@ -1146,7 +1146,7 @@ function setflag(){
 
 // --- http server requests ---
 // serve the files for the buildreact app
-app.use(express.static(path.join(__dirname, '../livegame/build')));
+app.use(express.static(path.join(__dirname, '/livegame/build')));
 // ### react app routes ###
 // get / file
 app.get('/', function(req, res) {
@@ -1155,19 +1155,19 @@ app.get('/', function(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
   res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-  res.sendFile(path.join(__dirname, '../livegame/build/index.html'));
+  res.sendFile(path.join(__dirname, '/livegame/build/index.html'));
 });
 // get / file
 app.get('/teamsetup', function(req, res) {
-  res.sendFile(path.join(__dirname, '../livegame/build/index.html'));
+  res.sendFile(path.join(__dirname, '/livegame/build/index.html'));
 });
 // get / file
 app.get('/gamesetup', function(req, res) {
-  res.sendFile(path.join(__dirname, '../livegame/build/index.html'));
+  res.sendFile(path.join(__dirname, '/livegame/build/index.html'));
 });
 // get / file
 app.get('/livegame', function(req, res) {
-  res.sendFile(path.join(__dirname, '../livegame/build/index.html'));
+  res.sendFile(path.join(__dirname, '/livegame/build/index.html'));
 });
 // ### react app routes end ###
 // get index file
