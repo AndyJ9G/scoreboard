@@ -3955,8 +3955,12 @@
                     "longestinterceptionreturn": 0,
                     "touchdownpass": 1,
                     "completionrate": "80%",
+                    "down1": 6,
+                    "down2": 3,
+                    "down3": 3,
                     "conversion3rddown": 1,
-                    "conversion1stdown": 2
+                    "conversion1stdown": 2,
+                    "down4": 1
                 },
                 "1": {
                     "tackle": 7,
@@ -4001,8 +4005,12 @@
                     "longestinterceptionreturn": 0,
                     "touchdownpass": 1,
                     "completionrate": "80%",
+                    "down1": 6,
+                    "down2": 3,
+                    "down3": 3,
                     "conversion3rddown": 1,
-                    "conversion1stdown": 2
+                    "conversion1stdown": 2,
+                    "down4": 1
                 }
             },
             "player": {
@@ -4137,7 +4145,11 @@
                     "interception": 1,
                     "tackleforloss": 1,
                     "completionrate": "57%",
-                    "conversion1stdown": 3
+                    "down1": 6,
+                    "down2": 4,
+                    "conversion1stdown": 3,
+                    "down3": 2,
+                    "down4": 1
                 },
                 "1": {
                     "Onside Kick": 1,
@@ -4176,7 +4188,11 @@
                     "interception": 1,
                     "tackleforloss": 1,
                     "completionrate": "57%",
-                    "conversion1stdown": 3
+                    "down1": 6,
+                    "down2": 4,
+                    "conversion1stdown": 3,
+                    "down3": 2,
+                    "down4": 1
                 }
             },
             "player": {

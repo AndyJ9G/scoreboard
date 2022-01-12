@@ -5609,7 +5609,7 @@ const sendTeamDetails = (datajson) => {
 }
 
 // get team logos and send io
-const sendTeamLogos = (teamjson) => {
+const sendTeamLogos = () => {
   readDirectoryPromise('teams')
   // read files in directory
   .then(files => {
@@ -5651,13 +5651,12 @@ const saveTeamDetails = (teamjson, teamdetails) => {
 
 // add new team
 const addNewTeam = (teamdetails, players) => {
-  // object for team data
-  let saveTeamData = {};
+  // save team data in object
+  let saveTeamData = teamdetails;
+  // save players in object
   let playerList = {
     players: players
   };
-  // save team data in object
-  saveTeamData = teamdetails;
   // update data object
   saveTeamData = Object.assign(saveTeamData, playerList);
 
@@ -7559,10 +7558,34 @@ const calculateConversions = (liveGameData, teamStats) => {
 
   let teamStatsObject = teamStats;
 
+  const playdown = [1,2,3,4];
+
   // loop plays
   liveGameData.plays.forEach((play,index) => {
     // check if the play was NOT nullified by penalty
     if(!play.penalty){
+      // check play is a regular down
+      if(playdown.includes(play.down)){
+        // count how many downs the team had
+        // set down text
+        const downtext = `down${play.down}`;
+        // check if we have such down already in period
+        if(teamStatsObject[play.offense].team[play.period][downtext]){
+          // increase count
+          teamStatsObject[play.offense].team[play.period][downtext] = teamStatsObject[play.offense].team[play.period][downtext] +1;
+        }else{
+          // set count
+          teamStatsObject[play.offense].team[play.period][downtext] = 1;
+        }
+        // check if we have such down already in full game = period 0
+        if(teamStatsObject[play.offense].team[0][downtext]){
+          // increase count
+          teamStatsObject[play.offense].team[0][downtext] = teamStatsObject[play.offense].team[0][downtext] +1;
+        }else{
+          // set count
+          teamStatsObject[play.offense].team[0][downtext] = 1;
+        }
+      }
       // check play was first down
       if(play.down === 1){
         // check previous play was a regular down
